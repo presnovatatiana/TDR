@@ -1,0 +1,3291 @@
+:root {
+  --navy: #003d7c;
+  --reef: #2b8fa7;
+  --aqua: #dff4f6;
+  --paper: #f6f6f6;
+  --soft: #fbfbfb;
+  --white: #ffffff;
+  --ink: #111111;
+  --muted: #5f6670;
+  --line: rgba(43, 143, 167, 0.58);
+  --shadow-lg: 0 0 81px -6px rgba(0, 0, 0, 0.13);
+  --shadow-md: 0 8px 42px rgba(0, 0, 0, 0.06);
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "Inter", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16.96px;
+  line-height: 1.7;
+  letter-spacing: 0.5px;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin-top: 0;
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+}
+
+.section-shell {
+  width: min(1180px, calc(100% - 96px));
+  margin-inline: auto;
+}
+
+.section-pad {
+  padding-block: 86px;
+}
+
+.panel {
+  background: var(--white);
+  box-shadow: var(--shadow-lg);
+}
+
+.eyebrow {
+  margin: 0 0 26px;
+  color: var(--navy);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+}
+
+.eyebrow-light {
+  color: var(--white);
+}
+
+.rule {
+  display: block;
+  width: 110px;
+  height: 2px;
+  background: var(--line);
+}
+
+.section-heading h2,
+.wide-heading h2,
+.feature-copy h2,
+.course-copy h2,
+.course-grid h2,
+.booking-head h2,
+.about-head h2,
+.contact-head h2,
+.footer h2 {
+  color: var(--navy);
+  font-family: var(--serif);
+  font-size: 61.6px;
+  font-weight: 600;
+  line-height: 0.94;
+  letter-spacing: -0.16rem;
+}
+
+.prose p,
+.course-copy p,
+.feature-copy p,
+.booking-course p,
+.about-grid p,
+.contact-address p,
+.footer p {
+  line-height: 1.72;
+}
+
+.btn {
+  display: inline-flex;
+  min-height: 50px;
+  align-items: center;
+  justify-content: center;
+  border: 1.25px solid currentColor;
+  border-radius: 999px;
+  padding: 0 23px;
+  background: transparent;
+  color: currentColor;
+  font-size: 14.6px;
+  font-weight: 800;
+  letter-spacing: 1.75px;
+  line-height: 1;
+  text-transform: uppercase;
+  transition: background 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 26px rgba(0, 61, 124, 0.16);
+}
+
+.btn-ghost {
+  color: var(--white);
+}
+
+.btn-ghost:hover {
+  background: var(--white);
+  color: var(--navy);
+}
+
+.btn-primary {
+  border-color: var(--navy);
+  background: var(--navy);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background: #0a4b91;
+}
+
+.btn-small {
+  min-height: 43px;
+  padding-inline: 18px;
+  font-size: 12.65px;
+  letter-spacing: 1.5px;
+}
+
+.btn-wide {
+  min-width: 281px;
+  min-height: 60px;
+  font-size: 17.5px;
+  letter-spacing: 2.1px;
+}
+
+/* ================================
+   HEADER / HERO
+================================ */
+
+.site-header {
+  position: relative;
+  color: var(--white);
+}
+
+.top-nav {
+  position: fixed;
+  z-index: 50;
+  inset: 0 0 auto;
+  min-height: 132px;
+  padding: 26px 50px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 34px;
+  backdrop-filter: blur(2px);
+  transition: min-height 180ms ease, padding 180ms ease, background 180ms ease, box-shadow 180ms ease;
+}
+
+.top-nav.scrolled {
+  min-height: 88px;
+  padding-block: 14px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.1);
+}
+
+.brand img {
+  width: 181px;
+  height: auto;
+  filter: brightness(0) invert(1);
+}
+
+.top-nav.scrolled .brand img {
+  filter: none;
+}
+
+.nav-list {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 46px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-list a {
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 1.92px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.top-nav.scrolled .nav-list a,
+.top-nav.scrolled .menu-toggle,
+.top-nav.scrolled .nav-cta {
+  color: var(--navy);
+}
+
+.nav-list a:hover {
+  color: #caeff7;
+}
+
+.top-nav.scrolled .nav-list a:hover {
+  color: var(--reef);
+}
+
+
+/* ================================
+   NAVIGATION FIN DECORATION
+   Real SVG images are inserted into every nav item.
+================================ */
+
+.nav-list li {
+  position: relative;
+}
+
+.nav-fin {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 10px);
+  z-index: 0;
+  width: 58px;
+  aspect-ratio: 446.93 / 137.08;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 8px) scale(0.8) rotate(-5deg);
+  transform-origin: center;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.nav-fin__img {
+  display: none;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.nav-fin__img--white {
+  display: block;
+}
+
+.nav-list li:hover .nav-fin,
+.nav-list li:focus-within .nav-fin {
+  opacity: 1;
+  transform: translate(-50%, 0) scale(1) rotate(-5deg);
+}
+
+.top-nav.scrolled .nav-fin__img--white {
+  display: none;
+}
+
+.top-nav.scrolled .nav-fin__img--blue {
+  display: block;
+}
+
+.nav-cta {
+  min-width: 201px;
+  justify-self: end;
+}
+
+.top-nav.scrolled .nav-cta:hover {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.menu-toggle {
+  display: none;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--white);
+}
+
+.menu-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  margin: 3px auto;
+  background: currentColor;
+}
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.35);
+
+  z-index: 1;
+}
+
+.hero-grid,
+.hero-copy {
+  position: relative;
+  z-index: 2;
+}
+.hero-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  min-height: 895px;
+  align-items: center;
+  padding-top: 132px;
+}
+
+
+.hero-copy {
+  max-width: 700px;
+  padding-top: 32px;
+}
+
+.hero h1 {
+  max-width: 690px;
+  margin: 0 0 36px;
+  color: var(--white);
+  font-family: var(--serif);
+  font-size: 95px;
+  font-weight: 700;
+  line-height: 0.86;
+  letter-spacing: 0;
+}
+
+.hero h1 span {
+  display: block;
+}
+
+.hero-copy p:not(.eyebrow) {
+  max-width: 700px;
+  margin-bottom: 30px;
+  color: var(--white);
+  font-size: 18px;
+  line-height: 1.6;
+  letter-spacing: 0;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.hero-wave {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 182px;
+  object-fit: cover;
+  object-position: top center;
+}
+
+/* ================================
+   INTRO
+================================ */
+
+.intro {
+  background: var(--white);
+  box-shadow: var(--shadow-lg);
+}
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(410px, 564px);
+  gap: 115px;
+  align-items: start;
+  margin-bottom: 6rem;
+}
+
+.intro .section-heading h2 {
+  max-width: 560px;
+  font-size: 64px;
+  line-height: 0.88;
+}
+
+.intro-text {
+  padding-top: 4px;
+}
+
+.intro-text p {
+  margin-bottom: 22px;
+}
+
+/* ================================
+   TAUCHEN UND NATURSCHUTZ
+================================ */
+
+.conservation {
+  position: relative;
+  overflow: hidden;
+  background: var(--paper);
+}
+
+.conservation .section-shell {
+  width: 100%;
+  max-width: none;
+}
+
+.conservation-grid {
+  position: relative;
+  min-height: 560px;
+  display: grid;
+  place-items: center;
+  padding-inline: 48px;
+}
+
+.fish-art {
+  pointer-events: none;
+}
+
+.fish {
+  position: absolute;
+  z-index: 1;
+  max-width: none;
+  height: auto;
+}
+
+.fish-front {
+  width: clamp(240px, 24vw, 360px);
+  left: clamp(-150px, -8vw, -70px);
+  bottom: 22rem;
+}
+
+.fish-back {
+  width: clamp(300px, 30vw, 460px);
+  right: clamp(-190px, -9vw, -90px);
+  bottom: -6rem;
+}
+
+.conservation-card {
+  position: relative;
+  z-index: 2;
+  width: min(860px, calc(100% - 96px));
+  max-width: 860px;
+  padding: 56px 58px 48px;
+}
+
+.link {
+  color: var(--reef);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.conservation-card h2,
+.course-copy h3,
+.about-grid h3,
+.booking-course h3,
+.booking-form h3,
+.contact-form h3,
+.contact-address h3,
+.spot-panel h3 {
+  color: var(--navy);
+  font-family: var(--serif);
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 0.97;
+  letter-spacing: 0;
+}
+.wide-heading h3 {
+  color: var(--navy);
+  font-family: var(--sans);
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 0.9;
+  letter-spacing: 0;
+  margin: 0;
+}
+.wide-heading h2 {
+  margin-bottom: 0.8rem;
+}
+.wide-heading .rule {
+  margin-top: 0.8rem;
+}
+
+.prose{
+  width: 564px;
+}
+
+/* ================================
+   FEATURE / STRAND + TURTLE
+================================ */
+
+.feature {
+  background: var(--white);
+  width: 100%;
+  padding-block: 86px;
+  overflow: hidden;
+}
+
+.feature-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 500px minmax(0, 520px);
+  gap: 120px;
+  align-items: center;
+  background: transparent;
+  box-shadow: none;
+}
+
+.feature-media {
+  position: relative;
+  width: 500px;
+  height: 542px;
+}
+
+.feature-media .strand {
+  position: relative;
+  z-index: 2;
+  width: 435px;
+  height: 542px;
+  object-fit: cover;
+}
+
+.feature-media .turtle {
+  position: absolute;
+  z-index: 1;
+  right: -7rem;
+  bottom: -6rem;
+  width: 24rem;
+  height: auto;
+  pointer-events: none;
+}
+
+.feature-copy {
+  position: relative;
+  z-index: 3;
+  max-width: 520px;
+}
+
+.feature-copy h2 span {
+  display: block;
+}
+
+.feature-copy p:not(.eyebrow) {
+  font-size: 14px;
+  line-height: 1.85;
+  letter-spacing: 0.9px;
+}
+
+.feature-copy .rule,
+.course-copy .rule {
+  margin-bottom: 32px;
+}
+
+/* ================================
+   TAUCHSPOTS / INTERAKTIVE KARTE
+================================ */
+
+.spots {
+  background: var(--paper);
+  overflow: hidden;
+}
+
+.spot-layout {
+  --map-ratio: 935.3 / 486.4;
+  position: relative;
+  isolation: isolate;
+  margin-top: 38px;
+  aspect-ratio: var(--map-ratio);
+  min-height: 560px;
+  background: #89d2f6;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.map-stage {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 22% 18%, rgba(255, 255, 255, 0.4), transparent 26%),
+    linear-gradient(135deg, #a7dcf4 0%, #89d2f6 46%, #65bde8 100%);
+  cursor: grab;
+  touch-action: none;
+}
+
+.map-stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(0, 61, 124, 0.05), transparent 28%, transparent 68%, rgba(0, 61, 124, 0.14)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.16), transparent 42%, rgba(0, 61, 124, 0.08));
+}
+
+.map-stage:active {
+  cursor: grabbing;
+}
+
+.map-inner {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: translate3d(0, 0, 0) scale(1);
+  transform-origin: 0 0;
+  transition: transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
+  user-select: none;
+  touch-action: none;
+  will-change: transform;
+}
+
+.map-inner.is-dragging {
+  transition: none;
+}
+
+.map-image {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  pointer-events: none;
+  user-select: none;
+}
+
+.marker {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  z-index: 4;
+  width: clamp(2rem, 1vw, 2rem);
+  aspect-ratio: 35 / 58;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  transform: translate(-50%, -100%);
+  transform-origin: 50% 100%;
+  transition: transform 180ms ease, filter 180ms ease;
+}
+
+.marker::before {
+  content: "";
+  position: absolute;
+  right: 8%;
+  bottom: -3px;
+  left: 8%;
+  height: 1rem;
+  border-radius: 999px;
+  background: rgba(0, 61, 124, 0.23);
+  filter: blur(7px);
+  opacity: 0;
+  transform: scale(0.76);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.marker img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 14px rgba(0, 61, 124, 0.16));
+  pointer-events: none;
+  user-select: none;
+}
+
+.marker.active,
+.marker:hover,
+.marker:focus-visible {
+  transform: translate(-50%, -100%) scale(0.9);
+  filter: drop-shadow(0 18px 18px rgba(0, 61, 124, 0.28));
+  color: rgba(207, 125, 183);
+}
+
+.marker.active::before,
+.marker:hover::before,
+.marker:focus-visible::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.marker:focus-visible,
+.spot-toggle:focus-visible,
+.spot-panel-toggle:focus-visible {
+  outline: 3px solid rgba(43, 143, 167, 0.38);
+  outline-offset: 3px;
+}
+
+
+/* Marker-Tooltip: zeigt den Namen des Tauchspots beim Hover/Fokus */
+.marker::after {
+  content: attr(data-label);
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 12px);
+  transform: translateX(-50%);
+  padding: 8px 14px;
+  background: rgba(255,255,255, 0.85);
+  backdrop-filter: blur(10px);
+  color: black;
+  border-radius: 1px;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+}
+.marker[data-spot="manta"]::after {
+  bottom: calc(100% - 6rem);
+}
+
+
+.marker:hover::after,
+.marker:focus-visible::after {
+  opacity: 1;
+  transform: translate(-50%, 0) scale(1);
+}
+
+.spot-panel {
+  position: absolute;
+  top: clamp(20px, 3vw, 34px);
+  right: clamp(18px, 3vw, 34px);
+  bottom: clamp(20px, 3vw, 34px);
+  z-index: 6;
+  width: min(390px, calc(100% - 36px));
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 28px 60px rgba(0, 61, 124, 0.18);
+  backdrop-filter: blur(18px);
+  overflow: hidden;
+  transition: width 260ms ease, transform 260ms ease, background 260ms ease;
+}
+
+
+.spot-panel-tab {
+  display: none;
+  color: var(--navy);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.spot-panel-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 49px;
+  gap: 18px;
+  align-items: start;
+  padding: 26px 26px 20px;
+  background: rgba(255, 255, 255, 0.98);
+  border-bottom: 1px solid rgba(0, 61, 124, 0.12);
+  height: 8rem;
+}
+
+.spot-panel-head .eyebrow {
+  margin-bottom: 6px;
+}
+
+.spot-panel-head h3 {
+  margin: 0 0 10px;
+}
+
+.spot-panel-head p:not(.eyebrow) {
+  color: var(--ink);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+
+.spot-panel-toggle {
+  position: relative;
+  top: 16px;
+  width: 50px;
+  height: 50px;
+  place-items: center;
+  border: 0;
+  color: var(--navy);
+ 
+}
+
+.spot-panel-toggle::before,
+.spot-panel-toggle::after {
+  content: none;
+  display: none;
+}
+
+.spot-panel-toggle img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  display: block;
+  border: 0;
+  transform: rotate(180deg);
+}
+
+.spot-panel.is-collapsed .spot-panel-toggle img {
+  transform: rotate(0deg) ;
+  transition: filter 180ms ease, transform 180ms ease;
+}
+
+.spot-panel-toggle:hover {
+      transition: transform 180ms ease, filter 180ms ease scale(1.1);
+}
+
+
+
+
+
+.spot-panel.is-collapsed {
+  width: 74px;
+
+  background: rgba(255, 255, 255, 0.88);
+}
+
+.spot-panel.is-collapsed .spot-panel-head {
+  height: 100%;
+  grid-template-columns: 1fr;
+  place-items: center;
+  gap: 22px;
+  padding: 18px 14px;
+  border-bottom: 0;
+}
+
+.spot-panel.is-collapsed .spot-panel-title,
+.spot-panel.is-collapsed .spot-accordion {
+  display: none;
+}
+
+.spot-panel.is-collapsed .spot-panel-tab {
+  display: block;
+}
+
+.spot-panel.is-collapsed .spot-panel-toggle {
+  order: -1;
+}
+
+.spot-panel.is-collapsed .spot-panel-toggle span {
+  transform: rotate(180deg);
+}
+
+.spot-accordion {
+  min-height: 0;
+  padding: 14px;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 61, 124, 0.35) rgba(0, 61, 124, 0.06);
+}
+
+.spot-accordion-item {
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid rgba(0, 61, 124, 0.12);
+  box-shadow: 0 12px 22px rgba(0, 61, 124, 0.06);
+}
+
+.spot-accordion-item + .spot-accordion-item {
+  margin-top: 10px;
+}
+
+.spot-toggle {
+  width: 100%;
+  min-height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  border: 0;
+  padding: 10px 14px;
+  background: transparent;
+  color: var(--navy);
+  text-align: left;
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.spot-toggle-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  min-width: 0;
+}
+
+.spot-toggle img {
+  flex: 0 0 auto;
+  width: 32px;
+  height: 52px;
+  object-fit: contain;
+}
+
+.spot-toggle b {
+  flex: 0 0 auto;
+  font-family: var(--sans);
+  font-size: 28px;
+  font-weight: 400;
+  transition: transform 180ms ease;
+}
+
+.spot-accordion-item.is-open .spot-toggle {
+  background: #f5fbfd;
+}
+
+.spot-accordion-item.is-open .spot-toggle b {
+  transform: rotate(45deg);
+}
+
+.spot-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  padding: 0 16px;
+  transition: grid-template-rows 240ms ease, padding 240ms ease;
+}
+
+.spot-content > * {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.spot-accordion-item.is-open .spot-content {
+  grid-template-rows: 1fr;
+  padding: 0 16px 18px 61px;
+}
+
+.spot-preview {
+  width: 100%;
+  height: 96px;
+  margin: 0 0 13px;
+  object-fit: cover;
+}
+
+.spot-content p {
+  margin: 0;
+  color: var(--ink);
+  font-size: 0.75rem;
+  line-height: 1.7;
+}
+
+.spot-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 14px;
+}
+
+.spot-facts span {
+  display: inline-flex;
+  min-height: 26px;
+  align-items: center;
+  border: 1px solid rgba(43, 143, 167, 0.28);
+  border-radius: 999px;
+  padding: 0 10px;
+  background: rgba(223, 244, 246, 0.55);
+  color: var(--navy);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .map-inner,
+  .marker,
+  .spot-panel,
+  .spot-content,
+  .spot-toggle b {
+    transition: none;
+  }
+}
+
+
+/* ================================
+   KURSE INTRO
+================================ */
+
+.course-intro {
+  background: var(--white);
+  box-shadow: var(--shadow-lg);
+}
+
+.course-intro-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 562px);
+  gap: clamp(1rem, 6vw, 2rem);
+  align-items: self-end;
+  padding: clamp(38px, 4.2vw, 54px) clamp(28px, 4vw, 0);
+}
+
+.course-copy {
+  max-width: 624px;
+}
+
+.course-copy p {
+  max-width: 624px;
+}
+
+.course-copy p:not(.eyebrow) {
+  font-size: 14px;
+  line-height: 1.85;
+  letter-spacing: 0.42px;
+}
+
+.course-copy h3 {
+  margin: clamp(36px, 4vw, 50px) 0 clamp(16px, 2vw, 22px);
+}
+
+.course-intro-grid > img {
+  width: 100%;
+  max-width: 562px;
+  aspect-ratio: 562 / 375;
+  height: auto;
+  justify-self: end;
+  object-fit: cover;
+  object-position: 62% 54%;
+}
+
+/* ================================
+   KURSKARTEN
+================================ */
+
+.course-grid {
+  background: var(--paper);
+}
+
+.course-grid h2 {
+  margin-bottom: 0;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 47px 35px;
+  align-items: start;
+  margin-top: 44px;
+}
+
+.course-card {
+  overflow: hidden;
+  background: var(--white);
+  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.12);
+}
+
+.course-card > img {
+  width: 100%;
+  height: 195px;
+  object-fit: cover;
+}
+
+.course-body {
+  padding: 18px 25px 25px 18px;
+}
+
+.course-body h3 {
+  margin-bottom: 10px;
+  color: var(--navy);
+  font-family: var(--serif);
+  font-size: 24.5px;
+  font-weight: 700;
+  line-height: 0.97;
+}
+
+.subline {
+  margin-top: -6px;
+  margin-bottom: -2px;
+  color: var(--navy);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--navy);
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 1.14px;
+  text-transform: uppercase;
+}
+
+.read-more span {
+  display: inline-block;
+  font-size: 16px;
+  line-height: 1;
+  transition: transform 160ms ease;
+}
+
+.course-card.expanded .read-more span {
+  transform: rotate(180deg);
+}
+
+.course-detail {
+  display: none;
+  padding-top: 16px;
+}
+
+.course-card.expanded .course-detail {
+  display: block;
+}
+
+.course-detail p {
+  color: var(--ink);
+  font-size: 13px;
+  line-height: 1.7;
+  letter-spacing: 0.39px;
+}
+
+.course-detail .facts {
+  font-weight: 700;
+  line-height: 1.8;
+  color: var(--ink);
+  font-size: 13px;
+  letter-spacing: 0.39px;
+  margin-bottom: 1.2rem;
+}
+
+/* ================================
+   BUCHUNG
+================================ */
+
+
+
+.booking-head {
+  max-width: 600px;
+  margin-bottom: 42px;
+}
+
+.booking-grid {
+  display: grid;
+  grid-template-columns: minmax(360px, 512px) minmax(0, 1fr);
+  gap: 42px;
+  align-items: start;
+}
+
+.booking-course {
+  background: var(--soft);
+}
+
+.booking-course img {
+  width: 100%;
+  height: 269px;
+  object-fit: cover;
+}
+
+.booking-course > div {
+  padding: 37px 34px 42px;
+}
+
+.booking-course h3 {
+  font-size: 34px;
+  margin-bottom: 1rem;
+}
+
+.booking-course p {
+  font-size: 17.99px;
+  line-height: 1.7;
+  letter-spacing: 0.54px;
+}
+#booking-course-description {
+  margin-top: 1.2rem;
+}
+
+.booking-form,
+.contact-form,
+.contact-address {
+  background: var(--soft);
+  padding: 31px 36px 34px;
+  box-shadow: var(--shadow-md);
+}
+
+.booking-form h3,
+.contact-form h3,
+.contact-address h3 {
+  margin-bottom: 26px;
+  font-size: 37.7px;
+}
+
+label {
+  display: block;
+  margin-bottom: 18px;
+  color: var(--navy);
+  font-size: 11.55px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 2.3px;
+  text-transform: uppercase;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  min-height: 49px;
+  margin-top: 8px;
+  border: 1px solid var(--navy);
+  border-radius: 0;
+  background: transparent;
+  color: var(--navy);
+  padding: 9px 13px;
+  outline: 0;
+}
+
+textarea {
+  min-height: 134px;
+  resize: vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  box-shadow: 0 0 0 3px rgba(43, 143, 167, 0.16);
+}
+
+.checkbox {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+  color: var(--navy);
+  font-size: 11.55px;
+  letter-spacing: 1.15px;
+  line-height: 1.35;
+  text-transform: none;
+}
+
+.checkbox input {
+  width: 18px;
+  min-height: 18px;
+  margin: 0;
+}
+
+.form-message {
+  margin: 22px 0 0;
+  color: var(--navy);
+  font-weight: 700;
+}
+
+
+.form-hint,
+.field-hint,
+.field-error {
+  display: block;
+  margin-top: 7px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: 0.45px;
+  text-transform: none;
+}
+
+.field-hint,
+.form-hint {
+  color: var(--muted);
+}
+
+.field-error {
+  color: #a3332f;
+}
+
+input:user-invalid,
+select:user-invalid,
+textarea:user-invalid {
+  border-color: #a3332f;
+  box-shadow: 0 0 0 3px rgba(163, 51, 47, 0.12);
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+/* ================================
+   ÜBER UNS
+================================ */
+
+
+.wave-strip {
+  position: relative;
+   right: 0;
+   left: 0;
+   width: 100%;
+}
+
+
+.about {
+  position: relative;
+  background: var(--paper);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.about-head {
+  max-width: 610px;
+}
+
+.lines {
+  width: 100vw;
+  aspect-ratio: 1275 / 228;
+  margin: clamp(42px, 5vw, 64px) calc(50% - 50vw) clamp(40px, 4vw, 56px);
+  margin-bottom: 0;
+  background: url("assets/linesw.png") center / 100%  no-repeat;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 42px;
+  align-items: start;
+}
+
+.about-card {
+  background: var(--white);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.about-card img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+}
+
+.about-card-text {
+  padding: 28px 30px 34px;
+  height: 14rem;
+}
+
+.about-card h3 {
+  margin: 0 0 16px;
+  color: var(--navy);
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 0.97;
+}
+
+.about-card p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.85;
+  letter-spacing: 0.42px;
+}
+#ueber-uns{
+padding-bottom: 0;
+
+}
+
+
+
+/* ================================
+   KONTAKT
+================================ */
+
+.contact {
+  background: var(--paper);
+}
+
+.contact-head {
+  max-width: 62rem;
+  margin-bottom: 42px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: minmax(360px, 520px) minmax(300px, 1fr);
+  gap: 74px;
+  align-items: start;
+}
+
+.contact-address {
+  min-height: 266px;
+  font-style: normal;
+}
+
+/* ================================
+   FOOTER
+================================ */
+
+.footer {
+  padding: 42px 0 30px;
+  background: var(--white);
+}
+
+.footer-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  align-items: start;
+}
+
+.footer-logo {
+  width: 12rem;
+  margin-bottom: 20px;
+  margin-top: 3rem;
+}
+.footer-address  {
+  margin-bottom: 1.7rem;
+  
+}
+
+.footer-address h2 {
+  margin-bottom: 1.7rem;
+  font-size: 2rem;
+  color: var(--navy);
+  letter-spacing: 0;
+  font-weight: 800;
+}
+.footer-address p {
+  font-size: 1rem;
+  line-height: 1.85;
+
+}
+
+.footer-links,
+.legal {
+  margin: 3.6rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-links li + li {
+  margin-top: 10px;
+}
+
+.footer-links a,
+.legal a {
+  color: var(--navy);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1.92px;
+  text-transform: uppercase;
+}
+
+.footer-links a:hover,
+.legal a:hover {
+  color: var(--reef);
+}
+.line{
+  border-top: #003d7c 1px solid;
+}
+.legal {
+  display: flex;
+  justify-content: space-between;
+  width: min(1180px, calc(100% - 96px));
+  margin-inline: auto;
+  margin-top: 2rem;
+  padding: 1rem 0;
+  gap: 46px;
+}
+.legal p {
+  color:#5f6670;
+  font-size: 12px;
+
+}
+.legal-links {
+  display: flex;
+  gap: 2.6rem;
+
+}
+.legal-links a {
+  font-size: 12px;
+
+}
+
+/* ================================
+   RESPONSIVE TABLET
+================================ */
+
+@media (max-width: 1180px) {
+  .section-shell {
+    width: min(100% - 56px, 980px);
+  }
+
+  .top-nav {
+    min-height: 96px;
+    padding: 18px 28px;
+  }
+
+  .nav-list {
+    gap: 24px;
+  }
+
+  .nav-list a {
+    font-size: 14px;
+  }
+
+  .nav-cta {
+    min-width: auto;
+    padding-inline: 20px;
+  }
+
+  .hero,
+  .hero-grid {
+    min-height: 820px;
+  }
+
+  .intro-grid,
+  .feature-grid,
+  .booking-grid,
+  .about-grid,
+  .contact-grid,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .intro .section-heading h2,
+  .section-heading h2,
+  .wide-heading h2,
+  .feature-copy h2,
+  .course-copy h2,
+  .course-grid h2,
+  .booking-head h2,
+  .about-head h2,
+  .contact-head h2,
+  .footer h2 {
+    font-size: 54px;
+  }
+
+  .feature-grid,
+  .course-intro-grid {
+    padding: 42px;
+  }
+
+  .feature-grid {
+    gap: 48px;
+  }
+
+  .feature-media {
+    width: 100%;
+    max-width: 500px;
+    height: 430px;
+  }
+
+  .feature-media .strand {
+    width: 100%;
+    height: 430px;
+  }
+
+  .feature-media .turtle {
+    right: -45px;
+    bottom: -35px;
+    width: 250px;
+  }
+
+  .course-intro-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 42%);
+  }
+
+  .course-intro-grid > img {
+    max-width: none;
+    height: auto;
+  }
+
+  .spot-layout {
+    min-height: 522px;
+  }
+
+  .map-stage {
+    min-height: 0;
+  }
+
+  .map-inner {
+    width: 100%;
+  }
+
+  .spot-panel {
+    width: min(316px, calc(100% - 32px));
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .legal {
+    justify-content: flex-start;
+  }
+}
+
+/* ================================
+   RESPONSIVE NAV / SMALL TABLET
+================================ */
+
+@media (max-width: 900px) {
+
+  .top-nav.scrolled .nav-fin__img--white,
+  .nav-fin__img--white {
+    display: block;
+  }
+
+  .top-nav.scrolled .nav-fin__img--blue,
+  .nav-fin__img--blue {
+    display: none;
+  }
+
+  .nav-fin {
+    top: 50%;
+    left: auto;
+    right: 26px;
+    width: 46px;
+    transform: translate(10px, -50%) scale(0.78) rotate(-5deg);
+  }
+
+  .nav-list li:hover .nav-fin,
+  .nav-list li:focus-within .nav-fin {
+    transform: translate(0, -50%) scale(1) rotate(-5deg);
+  }
+
+  .top-nav {
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+  }
+
+  .brand img {
+    width: 150px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-list {
+    position: fixed;
+    top: 96px;
+    right: 0;
+    left: 0;
+    display: grid;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    background: rgba(0, 61, 124, 0.97);
+    opacity: 0;
+    pointer-events: none;
+    transition: max-height 220ms ease, opacity 180ms ease;
+  }
+
+  .top-nav.scrolled .nav-list {
+    top: 88px;
+  }
+
+  .nav-list.open {
+    max-height: calc(100vh - 88px);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-list li {
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+  }
+
+  .nav-list a,
+  .top-nav.scrolled .nav-list a {
+    display: block;
+    padding: 20px 28px;
+    color: var(--white);
+  }
+
+  .nav-cta {
+    display: none;
+  }
+
+  .hero h1 {
+    font-size: 72px;
+  }
+
+  .hero-copy {
+    max-width: 620px;
+  }
+
+  .conservation-grid {
+    min-height: auto;
+    display: grid;
+    place-items: center;
+    padding-top: 230px;
+  }
+
+  .fish {
+    position: absolute;
+  }
+
+  .fish-front {
+    width: clamp(170px, 42vw, 260px);
+    left: -55px;
+    top: 10px;
+    bottom: auto;
+  }
+
+  .fish-back {
+    width: clamp(190px, 46vw, 290px);
+    right: -70px;
+    top: 35px;
+  }
+
+  .conservation-card {
+    width: 100%;
+    max-width: none;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .course-intro-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .course-intro-grid > img {
+    height: clamp(300px, 46vw, 430px);
+    justify-self: stretch;
+  }
+
+  .spot-layout {
+    display: grid;
+    min-height: 0;
+    aspect-ratio: auto;
+    background: var(--white);
+  }
+
+  .map-stage {
+    position: relative;
+    height: 540px;
+  }
+
+  .spot-panel {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    box-shadow: none;
+  }
+
+  .spot-accordion {
+    overflow: visible;
+  }
+}
+
+/* ================================
+   RESPONSIVE HANDY
+================================ */
+
+@media (max-width: 640px) {
+
+  .nav-fin {
+    right: 18px;
+    width: 40px;
+  }
+
+  body {
+    font-size: 15.5px;
+  }
+
+  .section-shell {
+    width: min(100% - 28px, 560px);
+  }
+
+  .section-pad {
+    padding-block: 58px;
+  }
+
+  .top-nav {
+    min-height: 74px;
+    padding: 12px 14px;
+  }
+
+  .top-nav.scrolled {
+    min-height: 74px;
+  }
+
+  .nav-list,
+  .top-nav.scrolled .nav-list {
+    top: 74px;
+  }
+
+  .brand img {
+    width: 138px;
+  }
+
+  .hero,
+  .hero-grid {
+    min-height: 640px;
+  }
+
+  .hero-grid {
+    padding-top: 74px;
+  }
+
+  .hero h1 {
+    font-size: 46px;
+    line-height: 1.02;
+  }
+
+  .hero-copy p:not(.eyebrow) {
+    font-size: 15px;
+  }
+
+  .hero-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .hero-wave {
+    height: 110px;
+  }
+
+  .intro .section-heading h2,
+  .section-heading h2,
+  .wide-heading h2,
+  .feature-copy h2,
+  .course-copy h2,
+  .course-grid h2,
+  .booking-head h2,
+  .about-head h2,
+  .contact-head h2,
+  .footer h2 {
+    font-size: 40px;
+    line-height: 1.02;
+  }
+
+  .conservation-card,
+  .feature-grid,
+  .course-intro-grid,
+  .booking-form,
+  .contact-form,
+  .contact-address {
+    padding: 26px 22px;
+  }
+
+  .conservation-grid {
+    padding-top: 190px;
+  }
+
+  .fish-front {
+    width: 165px;
+    left: -50px;
+    top: 8px;
+  }
+
+  .fish-back {
+    width: 190px;
+    right: -65px;
+    top: 38px;
+  }
+
+  .conservation-card {
+    padding: 30px 24px;
+  }
+
+  .feature {
+    padding-block: 58px;
+  }
+
+  .feature-media {
+    height: 300px;
+  }
+
+  .feature-media .strand {
+    height: 300px;
+  }
+
+  .feature-media .turtle {
+    right: -45px;
+    bottom: -28px;
+    width: 185px;
+  }
+
+  .feature-grid > img,
+  .course-intro-grid > img,
+  .about-grid img {
+    height: 300px;
+  }
+
+  .course-intro-grid {
+    gap: 28px;
+  }
+
+  .course-copy {
+    max-width: none;
+  }
+
+  .course-copy p:not(.eyebrow) {
+    font-size: 13.5px;
+    line-height: 1.78;
+  }
+
+  .course-copy h3 {
+    margin-top: 30px;
+    font-size: 34px;
+  }
+
+  .course-intro-grid > img {
+    height: clamp(220px, 58vw, 300px);
+  }
+
+  .spot-layout {
+    margin-top: 30px;
+  }
+
+  .map-stage {
+    height: 390px;
+  }
+
+  .map-inner {
+    width: 100%;
+  }
+
+  .marker {
+    width: 30px;
+    height: auto;
+  }
+
+  .spot-panel-head {
+    min-height: 96px;
+    padding: 24px 22px;
+  }
+
+  .spot-panel-head h3 {
+    font-size: 34px;
+  }
+
+  .spot-toggle {
+    min-height: 66px;
+    padding: 10px 12px;
+    font-size: 19px;
+  }
+
+  .spot-toggle img {
+    width: 30px;
+    height: 50px;
+  }
+
+  .spot-content {
+    padding: 0 14px 18px 56px;
+  }
+
+  .spot-content p {
+    font-size: 12px;
+  }
+
+  .booking-grid {
+    gap: 28px;
+  }
+
+  .btn-wide {
+    min-width: 0;
+  }
+
+  .footer-links,
+  .legal {
+    margin-top: 28px;
+  }
+
+  .legal {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+
+/* ================================
+   TAUCHSPOTS / RESPONSIVE POLISH
+================================ */
+
+@media (max-width: 1180px) {
+  .spot-layout {
+    min-height: 500px;
+  }
+
+  .spot-panel {
+    width: min(360px, calc(100% - 32px));
+  }
+}
+
+@media (max-width: 900px) {
+  .spot-layout {
+    display: grid;
+    aspect-ratio: auto;
+    min-height: 0;
+    background: var(--white);
+  }
+
+  .map-stage {
+    position: relative;
+    aspect-ratio: 829.58 / 441.55;
+    height: auto;
+    min-height: 0;
+  }
+
+  .spot-panel {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    max-height: none;
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+
+  .spot-panel.is-collapsed {
+    width: 100%;
+  }
+
+  .spot-panel.is-collapsed .spot-panel-head {
+    height: auto;
+    min-height: 76px;
+    grid-template-columns: minmax(0, 1fr) 49px;
+    place-items: initial;
+  }
+
+  .spot-panel.is-collapsed .spot-panel-title {
+    display: block;
+  }
+
+  .spot-panel.is-collapsed .spot-panel-title p:not(.eyebrow) {
+    display: none;
+  }
+
+  .spot-panel.is-collapsed .spot-panel-tab {
+    display: none;
+  }
+
+  .spot-panel.is-collapsed .spot-accordion {
+    display: none;
+  }
+
+  .spot-panel.is-collapsed .spot-panel-toggle {
+    order: initial;
+  }
+
+  .spot-accordion {
+    overflow: visible;
+  }
+}
+
+@media (max-width: 640px) {
+  .spot-layout {
+    margin-top: 30px;
+  }
+
+  .map-stage {
+    aspect-ratio: 829.58 / 520;
+  }
+
+  .marker {
+    width: 30px;
+  }
+
+  .spot-panel-head {
+    min-height: 0;
+    padding: 22px;
+  }
+
+  .spot-panel-head h3 {
+    font-size: 34px;
+  }
+
+  .spot-toggle {
+    min-height: 66px;
+    padding: 10px 12px;
+    font-size: 19px;
+  }
+
+  .spot-toggle img {
+    width: 30px;
+    height: 50px;
+  }
+
+  .spot-accordion-item.is-open .spot-content {
+    padding: 0 14px 18px 56px;
+  }
+
+  .spot-preview {
+    height: 86px;
+  }
+
+  .spot-content p {
+    font-size: 12px;
+  }
+}
+
+/* ================================
+   TAUCHSPOTS / MAP UPDATE
+   Pixel-Koordinaten, Alt-Zoom, Panel klappt nach oben
+================================ */
+
+.map-help {
+  position: absolute;
+  left: clamp(14px, 2vw, 28px);
+  bottom: clamp(14px, 2vw, 24px);
+  z-index: 5;
+  margin: 0;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--navy);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  line-height: 1.35;
+  text-transform: uppercase;
+  pointer-events: none;
+  box-shadow: 0 14px 30px rgba(0, 61, 124, 0.12);
+}
+
+.spot-panel {
+  top: clamp(20px, 3vw, 34px);
+  right: clamp(18px, 3vw, 34px);
+  bottom: auto;
+  width: min(390px, calc(100% - 36px));
+  max-height: calc(100% - clamp(40px, 6vw, 68px));
+  transition: max-height 260ms ease, transform 260ms ease, background 260ms ease, box-shadow 260ms ease;
+}
+
+.spot-panel-tab {
+  display: none !important;
+}
+
+.spot-panel-head {
+  min-height: 8rem;
+}
+
+.spot-panel-toggle span {
+  width: 13px;
+  height: 13px;
+  border-top: 0;
+  border-left: 0;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(-135deg);
+  transition: transform 180ms ease;
+}
+
+.spot-panel.is-collapsed {
+  width: min(390px, calc(100% - 36px));
+  max-height: 8rem;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 18px 44px rgba(0, 61, 124, 0.16);
+}
+
+.spot-panel.is-collapsed .spot-panel-head {
+  height: auto;
+  min-height: 8rem;
+  grid-template-columns: minmax(0, 1fr) 49px;
+  place-items: initial;
+  gap: 18px;
+  padding: 26px;
+  border-bottom: 0;
+}
+
+.spot-panel.is-collapsed .spot-panel-title {
+  display: block;
+}
+
+.spot-panel.is-collapsed .spot-panel-title p:not(.eyebrow) {
+  display: none;
+}
+
+.spot-panel.is-collapsed .spot-panel-title h3 {
+  margin-bottom: 0;
+}
+
+.spot-panel.is-collapsed .spot-panel-toggle {
+  order: initial;
+}
+
+.spot-panel.is-collapsed .spot-panel-toggle span {
+  transform: rotate(45deg);
+}
+
+.spot-panel.is-collapsed .spot-accordion {
+  display: none;
+}
+
+.spot-accordion-item {
+  border: 0;
+  box-shadow: 0 14px 30px rgba(0, 61, 124, 0.08);
+}
+
+.spot-content {
+  overflow: hidden;
+}
+
+
+
+@media (max-width: 1180px) {
+  .spot-panel,
+  .spot-panel.is-collapsed {
+    width: min(340px, calc(100% - 32px));
+  }
+}
+
+@media (max-width: 900px) {
+  .spot-panel,
+  .spot-panel.is-collapsed {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    max-height: none;
+  }
+
+  .spot-panel.is-collapsed {
+    max-height: 98px;
+  }
+
+  .spot-panel-head,
+  .spot-panel.is-collapsed .spot-panel-head {
+    min-height: 98px;
+  }
+
+  .spot-panel.is-collapsed .spot-accordion {
+    display: none;
+  }
+
+  .map-help {
+    max-width: calc(100% - 28px);
+    font-size: 9px;
+    letter-spacing: 1.4px;
+  }
+}
+
+/* ================================
+   TAUCHSPOTS / ACCORDION FINAL FIXES
+   Pfeil, Text-Bild-Reihenfolge, türkise aktive Icons
+================================ */
+:root {
+  --turquoise: #4bbbBD;
+}
+
+/* Zugeklappt bleibt die Orientierung sichtbar. */
+.spot-panel.is-collapsed .spot-panel-title {
+  display: block;
+}
+
+.spot-panel.is-collapsed .spot-panel-title .eyebrow {
+  display: none;
+}
+
+.spot-panel.is-collapsed .spot-panel-title p:not(.eyebrow) {
+   margin-top: 1rem;
+  display: block;
+  max-width: 240px;
+  color: var(--ink);
+}
+
+.spot-panel.is-collapsed {
+  max-height: 8rem;
+}
+
+.spot-panel.is-collapsed .spot-panel-head {
+  height: 8rem;
+}
+
+/* Gleicher Pfeil-Look wie bei der Kursauswahl. */
+.spot-arrow {
+  flex: 0 0 auto;
+  display: inline-block;
+  color: currentColor;
+  font-family: var(--sans);
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1;
+  transform: rotate(0deg);
+  transition: transform 180ms ease, color 180ms ease;
+}
+
+.spot-accordion-item.is-open .spot-arrow {
+  transform: rotate(180deg);
+}
+
+/* Falls irgendwo noch ein altes Plus stehen bleibt, wird es neutralisiert. */
+.spot-toggle b {
+  display: none;
+}
+
+/* Sauberes Auf-/Zuklappen: ein innerer Wrapper, der nach oben zusammenfährt. */
+.spot-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  padding: 0 16px;
+  overflow: hidden;
+  transition: grid-template-rows 240ms ease, padding 240ms ease;
+}
+
+.spot-content-inner {
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transform-origin: top;
+}
+
+.spot-content > * {
+  min-height: 0;
+}
+
+.spot-accordion-item.is-open .spot-content {
+  grid-template-rows: 1fr;
+  padding: 18px 16px 18px 15px;
+}
+
+/* Im geöffneten Punkt: Header, dann Text, dann Bild. */
+.spot-content p {
+  margin: 0;
+}
+
+.spot-content-inner .spot-preview {
+  width: 100%;
+  height: 96px;
+  margin: 0;
+  object-fit: cover;
+}
+
+/* Aktiver Punkt bekommt die CD-Farbe, die weiße Innenzeichnung bleibt durch Hue-Shift erhalten. */
+.marker img,
+.spot-toggle img {
+  transition: filter 180ms ease, transform 180ms ease;
+}
+
+.marker.active img {
+  filter: hue-rotate(-30deg) saturate(1.9) brightness(1.24) drop-shadow(0 12px 16px rgba(75, 187, 189, 0.26));
+}
+
+.marker.active::before {
+  background: rgba(75, 187, 189, 0.35);
+}
+
+.spot-accordion-item.is-open .spot-toggle {
+  color: var(--reef);
+  background: #f3fbfc;
+}
+
+.spot-accordion-item.is-open .spot-toggle img {
+  filter: hue-rotate(-30deg) saturate(1.9) brightness(1.24);
+}
+
+.spot-accordion-item.is-open .spot-arrow {
+  color: var(--reef);
+}
+
+@media (max-width: 900px) {
+  .spot-panel.is-collapsed {
+    max-height: 112px;
+  }
+
+  .spot-panel.is-collapsed .spot-panel-head {
+    min-height: 112px;
+  }
+}
+
+@media (max-width: 640px) {
+  .spot-panel.is-collapsed {
+    max-height: 106px;
+  }
+
+  .spot-panel.is-collapsed .spot-panel-head {
+    min-height: 106px;
+  }
+
+  .spot-accordion-item.is-open .spot-content {
+    padding: 0 14px 18px 56px;
+  }
+
+  .spot-content-inner .spot-preview {
+    height: 86px;
+  }
+}
+
+
+/* ================================
+   TAUCHSPOTS / STARTZUSTAND FINAL
+   Start geschlossen, Turtle als erster Punkt, keine Zoomfahrt beim Laden
+================================ */
+.spot-panel.is-collapsed {
+  max-height: 9.6rem;
+}
+
+.spot-panel.is-collapsed .spot-panel-head {
+  height: 8rem;
+  align-items: start;
+}
+
+.spot-panel.is-collapsed .spot-panel-title {
+  display: block;
+}
+
+.spot-panel.is-collapsed .spot-panel-title .eyebrow {
+  display: block;
+  margin: 0 0 6px;
+}
+
+.spot-panel.is-collapsed .spot-panel-title h3 {
+  margin: 0 0 10px;
+}
+
+.spot-panel.is-collapsed .spot-panel-title p:not(.eyebrow) {
+  display: block;
+  max-width: 260px;
+  margin: 0;
+  color: var(--ink);
+}
+
+.spot-panel.is-collapsed .spot-accordion {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .spot-panel.is-collapsed {
+    max-height: 9.8rem;
+  }
+
+  .spot-panel.is-collapsed .spot-panel-head {
+    height: 9.8rem;
+    min-height: 9.8rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .spot-panel.is-collapsed {
+    max-height: 9.4rem;
+  }
+
+  .spot-panel.is-collapsed .spot-panel-head {
+    height: 9.4rem;
+    min-height: 9.4rem;
+  }
+}
+
+/* ================================
+   FINALER RESPONSIVE-LAYER
+   Diese Regeln stehen bewusst ganz am Ende und stabilisieren Handy + Tablet.
+================================ */
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  -webkit-text-size-adjust: 100%;
+}
+
+main,
+section,
+.section-shell,
+.intro-grid,
+.feature-grid,
+.course-intro-grid,
+.booking-grid,
+.about-grid,
+.contact-grid,
+.footer-grid,
+.cards,
+.course-card,
+.booking-course,
+.booking-form,
+.contact-form,
+.contact-address,
+.spot-layout,
+.spot-panel {
+  min-width: 0;
+}
+
+.section-heading h2,
+.wide-heading h2,
+.feature-copy h2,
+.course-copy h2,
+.course-grid h2,
+.booking-head h2,
+.about-head h2,
+.contact-head h2,
+.footer h2 {
+  overflow-wrap: anywhere;
+}
+
+.hero {
+  min-height: 100svh;
+}
+
+.hero-grid {
+  min-height: 100svh;
+}
+
+.hero h1 {
+  font-size: clamp(46px, 8vw, 95px);
+}
+
+.hero-copy p:not(.eyebrow) {
+  max-width: 62ch;
+}
+
+.spot-content-inner {
+  display: flex;
+  flex-direction: column;
+}
+
+.spot-content-inner p {
+  order: 1;
+}
+
+.spot-content-inner .spot-preview {
+  order: 2;
+}
+
+@media (max-width: 1180px) {
+  .section-shell {
+    width: min(100% - 48px, 980px);
+  }
+
+  .top-nav {
+    gap: 22px;
+  }
+
+  .feature-grid,
+  .course-intro-grid {
+    padding: 38px;
+  }
+
+  .booking-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-course img {
+    height: clamp(240px, 38vw, 360px);
+  }
+
+  .about-card-text {
+    height: auto;
+    min-height: 14rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .top-nav {
+    min-height: 82px;
+    padding: 14px 24px;
+  }
+
+  .top-nav.scrolled {
+    min-height: 78px;
+    padding: 12px 24px;
+  }
+
+  .nav-list,
+  .top-nav.scrolled .nav-list {
+    top: 78px;
+  }
+
+  .nav-list.open {
+    max-height: calc(100svh - 78px);
+    overflow-y: auto;
+  }
+
+  .nav-list a,
+  .top-nav.scrolled .nav-list a {
+    min-height: 56px;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-grid {
+    align-items: end;
+    padding-top: 92px;
+    padding-bottom: clamp(86px, 14vh, 138px);
+  }
+
+  .hero-copy {
+    max-width: 680px;
+    padding-top: 0;
+  }
+
+  .intro-grid,
+  .course-intro-grid,
+  .about-grid,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-grid {
+    gap: 34px;
+  }
+
+  .feature-media {
+    width: min(100%, 560px);
+    height: auto;
+    aspect-ratio: 500 / 430;
+  }
+
+  .feature-media .strand {
+    width: 88%;
+    height: 100%;
+  }
+
+  .feature-media .turtle {
+    width: clamp(180px, 34vw, 260px);
+    right: 0;
+    bottom: -28px;
+  }
+
+  .spot-layout {
+    display: flex;
+    flex-direction: column;
+    aspect-ratio: auto;
+    min-height: 0;
+    overflow: visible;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .map-stage {
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 260px;
+    aspect-ratio: 829.58 / 500;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .map-help {
+    display: none;
+  }
+
+  .spot-panel,
+  .spot-panel.is-collapsed {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    max-height: none;
+    box-shadow: 0 18px 38px rgba(0, 61, 124, 0.12);
+    backdrop-filter: none;
+  }
+
+  .spot-panel-head,
+  .spot-panel.is-collapsed .spot-panel-head {
+    height: auto;
+    min-height: 0;
+    grid-template-columns: minmax(0, 1fr) 44px;
+    align-items: start;
+    padding: 22px 24px;
+  }
+
+  .spot-panel.is-collapsed .spot-panel-title,
+  .spot-panel.is-collapsed .spot-panel-title .eyebrow,
+  .spot-panel.is-collapsed .spot-panel-title p:not(.eyebrow) {
+    display: block;
+  }
+
+  .spot-panel.is-collapsed .spot-panel-title p:not(.eyebrow) {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .spot-panel.is-collapsed .spot-accordion {
+    display: none;
+  }
+
+  .spot-accordion {
+    max-height: none;
+    overflow: visible;
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+  }
+
+  .contact-grid {
+    gap: 28px;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    font-size: 15.5px;
+    line-height: 1.65;
+  }
+
+ 
+
+  
+
+  .top-nav,
+  .top-nav.scrolled {
+    min-height: 72px;
+    padding: 11px 14px;
+  }
+
+  .brand img {
+    width: 130px;
+  }
+
+  .menu-toggle {
+    width: 46px;
+    height: 46px;
+  }
+
+  .nav-list,
+  .top-nav.scrolled .nav-list {
+    top: 72px;
+  }
+
+  .nav-list.open {
+    max-height: calc(100svh - 72px);
+  }
+
+  .nav-list a,
+  .top-nav.scrolled .nav-list a {
+    padding: 18px 18px;
+    font-size: 13px;
+    letter-spacing: 1.4px;
+  }
+
+  .hero,
+  .hero-grid {
+    min-height: 100svh;
+  }
+
+  .hero-grid {
+    padding-top: 86px;
+    padding-bottom: 108px;
+  }
+
+  .hero h1 {
+    margin-bottom: 24px;
+    font-size: clamp(42px, 14vw, 56px);
+    line-height: 0.98;
+  }
+
+  .hero-copy p:not(.eyebrow) {
+    font-size: 14.5px;
+    line-height: 1.62;
+  }
+  .hero-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 6rem;
+  }
+
+  .eyebrow {
+    margin-bottom: 18px;
+    font-size: 10.5px;
+    letter-spacing: 1.9px;
+  }
+
+  .hero-actions,
+  .booking-form .btn,
+  .contact-form .btn {
+    width: 100%;
+  }
+
+  .hero-actions .btn,
+  .booking-form .btn,
+  .contact-form .btn,
+  .book-course-link {
+    width: 100%;
+  }
+
+  .btn {
+    min-height: 48px;
+    padding-inline: 18px;
+    font-size: 12.5px;
+    letter-spacing: 1.35px;
+  }
+
+  .section-heading h2,
+  .wide-heading h2,
+  .feature-copy h2,
+  .course-copy h2,
+  .course-grid h2,
+  .booking-head h2,
+  .about-head h2,
+  .contact-head h2,
+  .footer h2 {
+    font-size: clamp(34px, 11vw, 42px);
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+  }
+
+  .intro-grid {
+    gap: 28px;
+  }
+
+  .intro .section-heading h2 {
+    font-size: clamp(34px, 11vw, 42px);
+    line-height: 1.02;
+  }
+
+  .conservation-grid {
+    padding: 178px 14px 0;
+  }
+
+  .conservation-card,
+  .course-intro-grid,
+  .booking-form,
+  .contact-form,
+  .contact-address {
+    padding: 2rem 1.9rem;
+  }
+
+  .conservation-card h2,
+  .course-copy h3,
+  .about-grid h3,
+  .booking-course h3,
+  .booking-form h3,
+  .contact-form h3,
+  .contact-address h3,
+  .spot-panel h3 {
+    font-size: clamp(30px, 9vw, 36px);
+    line-height: 1.02;
+  }
+
+  .fish-front {
+    width: 160px;
+    left: -54px;
+    top: 8px;
+  }
+
+  .fish-back {
+    width: 182px;
+    right: -68px;
+    top: 42px;
+  }
+
+  .feature-grid,
+  .course-intro-grid {
+   
+     padding: 0;
+  }
+
+  .feature-media {
+    width: 100%;
+    height: 100%;
+    
+  }
+
+  .feature-media .strand {
+    width: 80%;
+    height: 100%;
+  }
+
+  .feature-media .turtle {
+    width: 245px;
+    right: -1rem;
+    bottom: -4rem;
+  }
+
+  .course-intro-grid > img,
+  .about-card img,
+  .booking-course img {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .course-card > img {
+    height: auto;
+    aspect-ratio: 16 / 10;
+  }
+
+  .course-body {
+    padding: 20px 18px 22px;
+  }
+
+  .course-body h3 {
+    font-size: 25px;
+  }
+
+  .spot-layout {
+    margin-top: 26px;
+  }
+
+  .map-stage {
+    min-height: 220px;
+    aspect-ratio: 829.58 / 560;
+  }
+
+  .marker {
+    width: 28px;
+    min-width: 28px;
+  }
+
+  .spot-panel-head,
+  .spot-panel.is-collapsed .spot-panel-head {
+    padding: 20px 16px;
+    gap: 12px;
+  }
+
+  .spot-panel-head .eyebrow {
+    margin-bottom: 7px;
+  }
+
+  .spot-panel-head h3,
+  .spot-panel.is-collapsed .spot-panel-title h3 {
+    margin-bottom: 8px;
+  }
+
+  .spot-panel-head p:not(.eyebrow) {
+    font-size: 12px;
+    line-height: 1.45;
+  }
+
+  .spot-panel-toggle {
+    width: 42px;
+    height: 42px;
+  }
+
+  .spot-accordion {
+    padding: 10px;
+  }
+
+  .spot-toggle {
+    min-height: 60px;
+    padding: 10px 12px;
+    gap: 10px;
+    font-size: 19px;
+  }
+
+  .spot-toggle-label {
+    gap: 10px;
+  }
+
+  .spot-toggle img {
+    width: 27px;
+    height: 44px;
+  }
+
+  .spot-accordion-item.is-open .spot-content {
+    padding: 0 12px 16px;
+  }
+
+  .spot-content-inner {
+    gap: 12px;
+  }
+
+  .spot-content p {
+    font-size: 12px;
+    line-height: 1.65;
+  }
+
+  .spot-content-inner .spot-preview,
+  .spot-preview {
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  .booking-head,
+  .contact-head,
+  .about-head {
+    margin-bottom: 30px;
+  }
+
+  .booking-grid {
+    gap: 22px;
+  }
+
+  .booking-course > div {
+    padding: 24px 18px;
+  }
+
+  .booking-course p {
+    font-size: 14.5px;
+  }
+
+  label {
+    margin-bottom: 16px;
+    font-size: 10.5px;
+    letter-spacing: 1.65px;
+  }
+
+  input,
+  select,
+  textarea {
+    min-height: 48px;
+    font-size: 16px;
+  }
+
+  .checkbox {
+    grid-template-columns: 20px minmax(0, 1fr);
+    gap: 12px;
+    font-size: 11px;
+  }
+
+  .about-grid {
+    gap: 22px;
+  }
+
+  .about-card-text {
+    height: auto;
+    min-height: 0;
+    padding: 24px 18px;
+  }
+
+  .lines {
+    min-height: 104px;
+    margin: 42px 0 34px;
+    background-size: cover;
+  }
+
+  .banner {
+    min-height: 220px;
+  }
+
+  .contact-grid {
+    gap: 22px;
+  }
+
+  .footer {
+    padding-top: 34px;
+  }
+
+  .footer-grid {
+    gap: 20px;
+  }
+
+  .footer-logo {
+    width: 9rem;
+    margin: 10px 0 0;
+  }
+
+  .footer-links {
+    margin-top: 8px;
+  }
+
+  .footer-links a,
+  .legal a {
+    font-size: 13px;
+    letter-spacing: 1.35px;
+  }
+
+  .legal {
+    width: min(100% - 28px, 560px);
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .legal-links {
+    flex-wrap: wrap;
+    gap: 14px 24px;
+  }
+}
+
+@media (max-width: 380px) {
+  .section-shell {
+    width: min(100% - 22px, 358px);
+  }
+
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .spot-toggle {
+    font-size: 18px;
+  }
+
+  .spot-toggle img {
+    width: 24px;
+    height: 40px;
+  }
+}
+
+
+/* ================================
+   SEMANTISCHE FEINARBEIT
+   Struktur-Tags behalten das bestehende Layout.
+================================ */
+
+.hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+figure {
+  margin: 0;
+}
+
+.map-help {
+  position: absolute;
+  left: clamp(14px, 2vw, 22px);
+  bottom: clamp(14px, 2vw, 22px);
+  z-index: 5;
+  max-width: min(420px, calc(100% - 28px));
+  margin: 0;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--navy);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.9px;
+  line-height: 1.35;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.footer-nav {
+  margin-top: 3.6rem;
+}
+
+.footer-nav .footer-links {
+  margin-top: 0;
+}
+
+address.footer-address {
+  font-style: normal;
+}
+
+@media (max-width: 900px) {
+  .map-help {
+    display: none;
+  }
+}
+
+/* ================================
+   TAUCHSPOTS / MAP HEIGHT + RESET LOGIC
+   Ganze Karte bleibt am Anfang sichtbar, ohne Anschnitt.
+================================ */
+.spot-layout {
+  --map-ratio: 935.3 / 486.4;
+  min-height: 0;
+  height: auto;
+}
+
+.map-stage {
+  min-height: 0;
+}
+
+.map-image {
+  object-fit: fill;
+}
+
+/* Wenn das Panel geschlossen ist, zeigt die Karte wieder die komplette Ausgangsansicht. */
+.spot-layout.panel-collapsed .marker.active {
+  transform: translate(-50%, -100%);
+  filter: none;
+}
+
+.spot-layout.panel-collapsed .marker.active::before {
+  opacity: 0;
+}
+
+@media (max-width: 1180px) {
+  .spot-layout {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .spot-layout {
+    aspect-ratio: auto;
+    min-height: 0;
+  }
+
+  .map-stage {
+    aspect-ratio: 829.58 / 441.55;
+    height: auto;
+    min-height: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .map-stage {
+    aspect-ratio: 829.58 / 441.55;
+    height: auto;
+  }
+}
+@media (max-width: 1279px) {
+    body::before {
+        content: "Diese Website ist nur für Desktop (≥ 1280px) optimiert.";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        font-size: 24px;
+        text-align: center;
+        padding: 2px;
+        z-index: 9999;
+    }
+}
