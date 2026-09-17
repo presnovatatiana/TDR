@@ -14,6 +14,22 @@
   --sans: "Inter", Arial, sans-serif;
 }
 
+#tauchspots {
+  scroll-margin-top: 5rem;
+}
+
+#kurse {
+  scroll-margin-top: 2rem;
+}
+
+#ueber-uns {
+  scroll-margin-top: 5rem;
+}
+
+#kontakt {
+  scroll-margin-top: 5rem;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -146,7 +162,12 @@ h2 {
   letter-spacing: 1.75px;
   line-height: 1;
   text-transform: uppercase;
-  transition: background 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
 }
 
 .btn:hover {
@@ -200,14 +221,26 @@ h2 {
   position: fixed;
   z-index: 50;
   inset: 0 0 auto;
-  min-height: 132px;
-  padding: 26px 50px;
+  min-height: 88px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  backdrop-filter: blur(2px);
+  transition:
+    min-height 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.nav-shell {
+  width: min(1180px, calc(100% - 96px));
+  margin-inline: auto;
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 34px;
-  backdrop-filter: blur(2px);
-  transition: min-height 180ms ease, padding 180ms ease, background 180ms ease, box-shadow 180ms ease;
+  padding-block: 26px;
+  transition: padding 180ms ease;
 }
 
 .top-nav.scrolled {
@@ -215,6 +248,10 @@ h2 {
   padding-block: 14px;
   background: rgba(255, 255, 255, 0.96);
   box-shadow: 0 16px 42px rgba(0, 0, 0, 0.1);
+}
+
+.top-nav.scrolled .nav-shell {
+  padding-block: 14px;
 }
 
 .brand img {
@@ -260,7 +297,6 @@ h2 {
   color: var(--reef);
 }
 
-
 /* ================================
    NAVIGATION FIN DECORATION
    Real SVG images are inserted into every nav item.
@@ -281,7 +317,9 @@ h2 {
   pointer-events: none;
   transform: translate(-50%, 8px) scale(0.8) rotate(-5deg);
   transform-origin: center;
-  transition: opacity 180ms ease, transform 180ms ease;
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
 }
 
 .nav-fin__img {
@@ -379,7 +417,6 @@ h2 {
   padding-top: 132px;
 }
 
-
 .hero-copy {
   max-width: 700px;
   padding-top: 32px;
@@ -451,7 +488,7 @@ h2 {
 }
 
 .intro-text {
-  padding-top: 4px;
+  padding-top: 2.5rem;
 }
 
 .intro-text p {
@@ -537,7 +574,7 @@ h2 {
   color: var(--navy);
   font-family: var(--sans);
   font-size: 22px;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 0.9;
   letter-spacing: 0;
   margin: 0;
@@ -546,11 +583,14 @@ h2 {
   margin-bottom: 0.8rem;
 }
 .wide-heading .rule {
-  margin-top: 0.8rem;
+  margin-top: 1.3rem;
 }
 
-.prose{
+.prose {
   width: 564px;
+}
+.proses {
+  margin-top: 2.9rem;
 }
 
 /* ================================
@@ -604,6 +644,10 @@ h2 {
   max-width: 520px;
 }
 
+.feature-copy a {
+  margin-top: 2rem;
+}
+
 .feature-copy h2 span {
   display: block;
 }
@@ -644,9 +688,6 @@ h2 {
   position: absolute;
   inset: 0;
   overflow: hidden;
-  background:
-    radial-gradient(circle at 22% 18%, rgba(255, 255, 255, 0.4), transparent 26%),
-    linear-gradient(135deg, #a7dcf4 0%, #89d2f6 46%, #65bde8 100%);
   cursor: grab;
   touch-action: none;
 }
@@ -658,8 +699,19 @@ h2 {
   z-index: 2;
   pointer-events: none;
   background:
-    linear-gradient(90deg, rgba(0, 61, 124, 0.05), transparent 28%, transparent 68%, rgba(0, 61, 124, 0.14)),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.16), transparent 42%, rgba(0, 61, 124, 0.08));
+    linear-gradient(
+      90deg,
+      rgba(0, 61, 124, 0.05),
+      transparent 28%,
+      transparent 68%,
+      rgba(0, 61, 124, 0.14)
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.16),
+      transparent 42%,
+      rgba(0, 61, 124, 0.08)
+    );
 }
 
 .map-stage:active {
@@ -707,7 +759,9 @@ h2 {
   box-shadow: none;
   transform: translate(-50%, -100%);
   transform-origin: 50% 100%;
-  transition: transform 180ms ease, filter 180ms ease;
+  transition:
+    transform 180ms ease,
+    filter 180ms ease;
 }
 
 .marker::before {
@@ -722,7 +776,9 @@ h2 {
   filter: blur(7px);
   opacity: 0;
   transform: scale(0.76);
-  transition: opacity 180ms ease, transform 180ms ease;
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
 }
 
 .marker img {
@@ -758,7 +814,6 @@ h2 {
   outline-offset: 3px;
 }
 
-
 /* Marker-Tooltip: zeigt den Namen des Tauchspots beim Hover/Fokus */
 .marker::after {
   content: attr(data-label);
@@ -767,7 +822,7 @@ h2 {
   bottom: calc(100% + 12px);
   transform: translateX(-50%);
   padding: 8px 14px;
-  background: rgba(255,255,255, 0.85);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(10px);
   color: black;
   border-radius: 1px;
@@ -781,7 +836,9 @@ h2 {
 .marker[data-spot="manta"]::after {
   bottom: calc(100% - 6rem);
 }
-
+.marker[data-spot="coral"]::after {
+  bottom: calc(100% - 6rem);
+}
 
 .marker:hover::after,
 .marker:focus-visible::after {
@@ -802,9 +859,11 @@ h2 {
   box-shadow: 0 28px 60px rgba(0, 61, 124, 0.18);
   backdrop-filter: blur(18px);
   overflow: hidden;
-  transition: width 260ms ease, transform 260ms ease, background 260ms ease;
+  transition:
+    width 260ms ease,
+    transform 260ms ease,
+    background 260ms ease;
 }
-
 
 .spot-panel-tab {
   display: none;
@@ -842,7 +901,6 @@ h2 {
   line-height: 1.6;
 }
 
-
 .spot-panel-toggle {
   position: relative;
   top: 16px;
@@ -851,7 +909,6 @@ h2 {
   place-items: center;
   border: 0;
   color: var(--navy);
- 
 }
 
 .spot-panel-toggle::before,
@@ -870,17 +927,19 @@ h2 {
 }
 
 .spot-panel.is-collapsed .spot-panel-toggle img {
-  transform: rotate(0deg) ;
-  transition: filter 180ms ease, transform 180ms ease;
+  transform: rotate(0deg);
+  transition:
+    filter 180ms ease,
+    transform 180ms ease;
 }
 
-.spot-panel-toggle:hover {
-      transition: transform 180ms ease, filter 180ms ease scale(1.1);
+.spot-panel-toggle:hover img {
+  transform: scale(1.1) rotate(180deg);
 }
 
-
-
-
+.spot-panel.is-collapsed .spot-panel-toggle:hover img {
+  transform: scale(1.1) rotate(0deg);
+}
 
 .spot-panel.is-collapsed {
   width: 74px;
@@ -985,7 +1044,9 @@ h2 {
   display: grid;
   grid-template-rows: 0fr;
   padding: 0 16px;
-  transition: grid-template-rows 240ms ease, padding 240ms ease;
+  transition:
+    grid-template-rows 240ms ease,
+    padding 240ms ease;
 }
 
 .spot-content > * {
@@ -1044,7 +1105,6 @@ h2 {
     transition: none;
   }
 }
-
 
 /* ================================
    KURSE INTRO
@@ -1199,8 +1259,6 @@ h2 {
    BUCHUNG
 ================================ */
 
-
-
 .booking-head {
   max-width: 600px;
   margin-bottom: 42px;
@@ -1316,7 +1374,6 @@ textarea:focus {
   font-weight: 700;
 }
 
-
 .form-hint,
 .field-hint,
 .field-error {
@@ -1371,14 +1428,12 @@ textarea:user-invalid {
    ÜBER UNS
 ================================ */
 
-
 .wave-strip {
   position: relative;
-   right: 0;
-   left: 0;
-   width: 100%;
+  right: 0;
+  left: 0;
+  width: 100%;
 }
-
 
 .about {
   position: relative;
@@ -1396,7 +1451,7 @@ textarea:user-invalid {
   aspect-ratio: 1275 / 228;
   margin: clamp(42px, 5vw, 64px) calc(50% - 50vw) clamp(40px, 4vw, 56px);
   margin-bottom: 0;
-  background: url("assets/linesw.png") center / 100%  no-repeat;
+  background: url("assets/linesw.png") center / 100% no-repeat;
 }
 
 .about-grid {
@@ -1420,7 +1475,7 @@ textarea:user-invalid {
 
 .about-card-text {
   padding: 28px 30px 34px;
-  height: 14rem;
+  height: 18rem;
 }
 
 .about-card h3 {
@@ -1438,12 +1493,9 @@ textarea:user-invalid {
   line-height: 1.85;
   letter-spacing: 0.42px;
 }
-#ueber-uns{
-padding-bottom: 0;
-
+#ueber-uns {
+  padding-bottom: 0;
 }
-
-
 
 /* ================================
    KONTAKT
@@ -1491,9 +1543,8 @@ padding-bottom: 0;
   margin-bottom: 20px;
   margin-top: 3rem;
 }
-.footer-address  {
+.footer-address {
   margin-bottom: 1.7rem;
-  
 }
 
 .footer-address h2 {
@@ -1506,7 +1557,6 @@ padding-bottom: 0;
 .footer-address p {
   font-size: 1rem;
   line-height: 1.85;
-
 }
 
 .footer-links,
@@ -1533,7 +1583,7 @@ padding-bottom: 0;
 .legal a:hover {
   color: var(--reef);
 }
-.line{
+.line {
   border-top: #003d7c 1px solid;
 }
 .legal {
@@ -1546,18 +1596,18 @@ padding-bottom: 0;
   gap: 46px;
 }
 .legal p {
-  color:#5f6670;
-  font-size: 12px;
+  color: #5f6670;
 
 }
+.copyright {
+    font-size: 0.65rem;
+  }
 .legal-links {
   display: flex;
   gap: 2.6rem;
-
 }
 .legal-links a {
   font-size: 12px;
-
 }
 
 /* ================================
@@ -1675,508 +1725,6 @@ padding-bottom: 0;
 }
 
 /* ================================
-   RESPONSIVE NAV / SMALL TABLET
-================================ */
-
-@media (max-width: 900px) {
-
-  .top-nav.scrolled .nav-fin__img--white,
-  .nav-fin__img--white {
-    display: block;
-  }
-
-  .top-nav.scrolled .nav-fin__img--blue,
-  .nav-fin__img--blue {
-    display: none;
-  }
-
-  .nav-fin {
-    top: 50%;
-    left: auto;
-    right: 26px;
-    width: 46px;
-    transform: translate(10px, -50%) scale(0.78) rotate(-5deg);
-  }
-
-  .nav-list li:hover .nav-fin,
-  .nav-list li:focus-within .nav-fin {
-    transform: translate(0, -50%) scale(1) rotate(-5deg);
-  }
-
-  .top-nav {
-    grid-template-columns: auto auto;
-    justify-content: space-between;
-  }
-
-  .brand img {
-    width: 150px;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  .nav-list {
-    position: fixed;
-    top: 96px;
-    right: 0;
-    left: 0;
-    display: grid;
-    gap: 0;
-    max-height: 0;
-    overflow: hidden;
-    background: rgba(0, 61, 124, 0.97);
-    opacity: 0;
-    pointer-events: none;
-    transition: max-height 220ms ease, opacity 180ms ease;
-  }
-
-  .top-nav.scrolled .nav-list {
-    top: 88px;
-  }
-
-  .nav-list.open {
-    max-height: calc(100vh - 88px);
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .nav-list li {
-    border-top: 1px solid rgba(255, 255, 255, 0.16);
-  }
-
-  .nav-list a,
-  .top-nav.scrolled .nav-list a {
-    display: block;
-    padding: 20px 28px;
-    color: var(--white);
-  }
-
-  .nav-cta {
-    display: none;
-  }
-
-  .hero h1 {
-    font-size: 72px;
-  }
-
-  .hero-copy {
-    max-width: 620px;
-  }
-
-  .conservation-grid {
-    min-height: auto;
-    display: grid;
-    place-items: center;
-    padding-top: 230px;
-  }
-
-  .fish {
-    position: absolute;
-  }
-
-  .fish-front {
-    width: clamp(170px, 42vw, 260px);
-    left: -55px;
-    top: 10px;
-    bottom: auto;
-  }
-
-  .fish-back {
-    width: clamp(190px, 46vw, 290px);
-    right: -70px;
-    top: 35px;
-  }
-
-  .conservation-card {
-    width: 100%;
-    max-width: none;
-  }
-
-  .cards {
-    grid-template-columns: 1fr;
-  }
-
-  .course-intro-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .course-intro-grid > img {
-    height: clamp(300px, 46vw, 430px);
-    justify-self: stretch;
-  }
-
-  .spot-layout {
-    display: grid;
-    min-height: 0;
-    aspect-ratio: auto;
-    background: var(--white);
-  }
-
-  .map-stage {
-    position: relative;
-    height: 540px;
-  }
-
-  .spot-panel {
-    position: relative;
-    inset: auto;
-    width: 100%;
-    box-shadow: none;
-  }
-
-  .spot-accordion {
-    overflow: visible;
-  }
-}
-
-/* ================================
-   RESPONSIVE HANDY
-================================ */
-
-@media (max-width: 640px) {
-
-  .nav-fin {
-    right: 18px;
-    width: 40px;
-  }
-
-  body {
-    font-size: 15.5px;
-  }
-
-  .section-shell {
-    width: min(100% - 28px, 560px);
-  }
-
-  .section-pad {
-    padding-block: 58px;
-  }
-
-  .top-nav {
-    min-height: 74px;
-    padding: 12px 14px;
-  }
-
-  .top-nav.scrolled {
-    min-height: 74px;
-  }
-
-  .nav-list,
-  .top-nav.scrolled .nav-list {
-    top: 74px;
-  }
-
-  .brand img {
-    width: 138px;
-  }
-
-  .hero,
-  .hero-grid {
-    min-height: 640px;
-  }
-
-  .hero-grid {
-    padding-top: 74px;
-  }
-
-  .hero h1 {
-    font-size: 46px;
-    line-height: 1.02;
-  }
-
-  .hero-copy p:not(.eyebrow) {
-    font-size: 15px;
-  }
-
-  .hero-actions {
-    align-items: stretch;
-    flex-direction: column;
-  }
-
-  .btn {
-    width: 100%;
-  }
-
-  .hero-wave {
-    height: 110px;
-  }
-
-  .intro .section-heading h2,
-  .section-heading h2,
-  .wide-heading h2,
-  .feature-copy h2,
-  .course-copy h2,
-  .course-grid h2,
-  .booking-head h2,
-  .about-head h2,
-  .contact-head h2,
-  .footer h2 {
-    font-size: 40px;
-    line-height: 1.02;
-  }
-
-  .conservation-card,
-  .feature-grid,
-  .course-intro-grid,
-  .booking-form,
-  .contact-form,
-  .contact-address {
-    padding: 26px 22px;
-  }
-
-  .conservation-grid {
-    padding-top: 190px;
-  }
-
-  .fish-front {
-    width: 165px;
-    left: -50px;
-    top: 8px;
-  }
-
-  .fish-back {
-    width: 190px;
-    right: -65px;
-    top: 38px;
-  }
-
-  .conservation-card {
-    padding: 30px 24px;
-  }
-
-  .feature {
-    padding-block: 58px;
-  }
-
-  .feature-media {
-    height: 300px;
-  }
-
-  .feature-media .strand {
-    height: 300px;
-  }
-
-  .feature-media .turtle {
-    right: -45px;
-    bottom: -28px;
-    width: 185px;
-  }
-
-  .feature-grid > img,
-  .course-intro-grid > img,
-  .about-grid img {
-    height: 300px;
-  }
-
-  .course-intro-grid {
-    gap: 28px;
-  }
-
-  .course-copy {
-    max-width: none;
-  }
-
-  .course-copy p:not(.eyebrow) {
-    font-size: 13.5px;
-    line-height: 1.78;
-  }
-
-  .course-copy h3 {
-    margin-top: 30px;
-    font-size: 34px;
-  }
-
-  .course-intro-grid > img {
-    height: clamp(220px, 58vw, 300px);
-  }
-
-  .spot-layout {
-    margin-top: 30px;
-  }
-
-  .map-stage {
-    height: 390px;
-  }
-
-  .map-inner {
-    width: 100%;
-  }
-
-  .marker {
-    width: 30px;
-    height: auto;
-  }
-
-  .spot-panel-head {
-    min-height: 96px;
-    padding: 24px 22px;
-  }
-
-  .spot-panel-head h3 {
-    font-size: 34px;
-  }
-
-  .spot-toggle {
-    min-height: 66px;
-    padding: 10px 12px;
-    font-size: 19px;
-  }
-
-  .spot-toggle img {
-    width: 30px;
-    height: 50px;
-  }
-
-  .spot-content {
-    padding: 0 14px 18px 56px;
-  }
-
-  .spot-content p {
-    font-size: 12px;
-  }
-
-  .booking-grid {
-    gap: 28px;
-  }
-
-  .btn-wide {
-    min-width: 0;
-  }
-
-  .footer-links,
-  .legal {
-    margin-top: 28px;
-  }
-
-  .legal {
-    flex-direction: column;
-    gap: 12px;
-  }
-}
-
-
-/* ================================
-   TAUCHSPOTS / RESPONSIVE POLISH
-================================ */
-
-@media (max-width: 1180px) {
-  .spot-layout {
-    min-height: 500px;
-  }
-
-  .spot-panel {
-    width: min(360px, calc(100% - 32px));
-  }
-}
-
-@media (max-width: 900px) {
-  .spot-layout {
-    display: grid;
-    aspect-ratio: auto;
-    min-height: 0;
-    background: var(--white);
-  }
-
-  .map-stage {
-    position: relative;
-    aspect-ratio: 829.58 / 441.55;
-    height: auto;
-    min-height: 0;
-  }
-
-  .spot-panel {
-    position: relative;
-    inset: auto;
-    width: 100%;
-    max-height: none;
-    box-shadow: none;
-    backdrop-filter: none;
-  }
-
-  .spot-panel.is-collapsed {
-    width: 100%;
-  }
-
-  .spot-panel.is-collapsed .spot-panel-head {
-    height: auto;
-    min-height: 76px;
-    grid-template-columns: minmax(0, 1fr) 49px;
-    place-items: initial;
-  }
-
-  .spot-panel.is-collapsed .spot-panel-title {
-    display: block;
-  }
-
-  .spot-panel.is-collapsed .spot-panel-title p:not(.eyebrow) {
-    display: none;
-  }
-
-  .spot-panel.is-collapsed .spot-panel-tab {
-    display: none;
-  }
-
-  .spot-panel.is-collapsed .spot-accordion {
-    display: none;
-  }
-
-  .spot-panel.is-collapsed .spot-panel-toggle {
-    order: initial;
-  }
-
-  .spot-accordion {
-    overflow: visible;
-  }
-}
-
-@media (max-width: 640px) {
-  .spot-layout {
-    margin-top: 30px;
-  }
-
-  .map-stage {
-    aspect-ratio: 829.58 / 520;
-  }
-
-  .marker {
-    width: 30px;
-  }
-
-  .spot-panel-head {
-    min-height: 0;
-    padding: 22px;
-  }
-
-  .spot-panel-head h3 {
-    font-size: 34px;
-  }
-
-  .spot-toggle {
-    min-height: 66px;
-    padding: 10px 12px;
-    font-size: 19px;
-  }
-
-  .spot-toggle img {
-    width: 30px;
-    height: 50px;
-  }
-
-  .spot-accordion-item.is-open .spot-content {
-    padding: 0 14px 18px 56px;
-  }
-
-  .spot-preview {
-    height: 86px;
-  }
-
-  .spot-content p {
-    font-size: 12px;
-  }
-}
-
-/* ================================
    TAUCHSPOTS / MAP UPDATE
    Pixel-Koordinaten, Alt-Zoom, Panel klappt nach oben
 ================================ */
@@ -2205,7 +1753,11 @@ padding-bottom: 0;
   bottom: auto;
   width: min(390px, calc(100% - 36px));
   max-height: calc(100% - clamp(40px, 6vw, 68px));
-  transition: max-height 260ms ease, transform 260ms ease, background 260ms ease, box-shadow 260ms ease;
+  transition:
+    max-height 260ms ease,
+    transform 260ms ease,
+    background 260ms ease,
+    box-shadow 260ms ease;
 }
 
 .spot-panel-tab {
@@ -2277,8 +1829,6 @@ padding-bottom: 0;
   overflow: hidden;
 }
 
-
-
 @media (max-width: 1180px) {
   .spot-panel,
   .spot-panel.is-collapsed {
@@ -2320,7 +1870,7 @@ padding-bottom: 0;
    Pfeil, Text-Bild-Reihenfolge, türkise aktive Icons
 ================================ */
 :root {
-  --turquoise: #4bbbBD;
+  --turquoise: #4bbbbd;
 }
 
 /* Zugeklappt bleibt die Orientierung sichtbar. */
@@ -2333,7 +1883,7 @@ padding-bottom: 0;
 }
 
 .spot-panel.is-collapsed .spot-panel-title p:not(.eyebrow) {
-   margin-top: 1rem;
+  margin-top: 1rem;
   display: block;
   max-width: 240px;
   color: var(--ink);
@@ -2357,7 +1907,9 @@ padding-bottom: 0;
   font-weight: 700;
   line-height: 1;
   transform: rotate(0deg);
-  transition: transform 180ms ease, color 180ms ease;
+  transition:
+    transform 180ms ease,
+    color 180ms ease;
 }
 
 .spot-accordion-item.is-open .spot-arrow {
@@ -2375,7 +1927,9 @@ padding-bottom: 0;
   grid-template-rows: 0fr;
   padding: 0 16px;
   overflow: hidden;
-  transition: grid-template-rows 240ms ease, padding 240ms ease;
+  transition:
+    grid-template-rows 240ms ease,
+    padding 240ms ease;
 }
 
 .spot-content-inner {
@@ -2411,11 +1965,14 @@ padding-bottom: 0;
 /* Aktiver Punkt bekommt die CD-Farbe, die weiße Innenzeichnung bleibt durch Hue-Shift erhalten. */
 .marker img,
 .spot-toggle img {
-  transition: filter 180ms ease, transform 180ms ease;
+  transition:
+    filter 180ms ease,
+    transform 180ms ease;
 }
 
 .marker.active img {
-  filter: hue-rotate(-30deg) saturate(1.9) brightness(1.24) drop-shadow(0 12px 16px rgba(75, 187, 189, 0.26));
+  filter: hue-rotate(-30deg) saturate(1.9) brightness(1.24)
+    drop-shadow(0 12px 16px rgba(75, 187, 189, 0.26));
 }
 
 .marker.active::before {
@@ -2462,7 +2019,6 @@ padding-bottom: 0;
     height: 86px;
   }
 }
-
 
 /* ================================
    TAUCHSPOTS / STARTZUSTAND FINAL
@@ -2773,11 +2329,12 @@ section,
   body {
     font-size: 15.5px;
     line-height: 1.65;
+    
   }
-
- 
-
   
+  section {
+    max-width: 100vw;
+  }
 
   .top-nav,
   .top-nav.scrolled {
@@ -2884,6 +2441,7 @@ section,
   .intro .section-heading h2 {
     font-size: clamp(34px, 11vw, 42px);
     line-height: 1.02;
+    max-width: calc(100% - 2rem);
   }
 
   .conservation-grid {
@@ -2924,14 +2482,12 @@ section,
 
   .feature-grid,
   .course-intro-grid {
-   
-     padding: 0;
+    padding: 0;
   }
 
   .feature-media {
     width: 100%;
     height: 100%;
-    
   }
 
   .feature-media .strand {
@@ -3165,7 +2721,6 @@ section,
   }
 }
 
-
 /* ================================
    SEMANTISCHE FEINARBEIT
    Struktur-Tags behalten das bestehende Layout.
@@ -3270,22 +2825,1171 @@ address.footer-address {
     height: auto;
   }
 }
-@media (max-width: 1279px) {
-    body::before {
-        content: "Diese Website ist nur für Desktop (≥ 1280px) optimiert.";
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: rgba(0, 0, 0, 0.7);
-        color: white;
-        font-size: 24px;
-        text-align: center;
-        padding: 2px;
-        z-index: 9999;
-    }
+
+/* ================================
+   RESPONSIVE PRUEFUNGS-LAYER 2026
+   Ziel: iPhone 14 Pro + Desktop ab 1280px ohne starre Layoutbreiten.
+================================ */
+
+:root {
+  --page-gutter: clamp(1.1rem, 4vw, 3rem);
+  --content-max: 73.75rem;
+  --section-space: clamp(4rem, 7vw, 5.5rem);
+  --grid-gap: clamp(1.5rem, 5vw, 6.5rem);
+  --headline-xl: clamp(2.75rem, 7vw, 5.95rem);
+  --headline-lg: clamp(2.15rem, 5vw, 4rem);
+  --headline-md: clamp(1.85rem, 3.6vw, 2.65rem);
 }
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  width: 100%;
+  min-width: 0;
+  overflow-x: hidden;
+  font-size: clamp(0.97rem, 0.32vw + 0.9rem, 1.06rem);
+}
+
+.section-shell,
+.nav-shell,
+.legal {
+  width: min(var(--content-max), calc(100% - var(--page-gutter) * 2));
+}
+
+.section-pad,
+.feature {
+  padding-block: var(--section-space);
+}
+
+
+
+.hero h1 {
+  max-width: 18ch;
+  font-size: var(--headline-xl);
+  line-height: 0.9;
+}
+
+
+
+.btn-wide,
+.nav-cta {
+  min-width: 0;
+}
+
+.top-nav {
+  min-height: clamp(4.5rem, 7vw, 5.5rem);
+  padding: 0;
+}
+
+.nav-shell {
+  gap: clamp(1rem, 3vw, 2.25rem);
+  padding-block: clamp(0.85rem, 2vw, 1.6rem);
+}
+
+.brand img {
+  width: clamp(8.25rem, 14vw, 11.3rem);
+}
+
+.nav-list {
+  gap: clamp(1.25rem, 3vw, 2.85rem);
+}
+
+.nav-list a {
+  font-size: clamp(0.82rem, 0.4vw + 0.72rem, 1rem);
+}
+
+.hero,
+.hero-grid {
+  min-height: 100svh;
+}
+
+.hero-grid {
+  padding-top: clamp(5.5rem, 9vw, 8.25rem);
+}
+
+.hero-wave {
+  height: clamp(6rem, 13vw, 11.4rem);
+}
+
+
+
+.intro-grid {
+  grid-template-columns: minmax(0, 1fr) minmax(min(100%, 25rem), 35rem);
+  margin-bottom: clamp(3rem, 6vw, 6rem);
+}
+
+.conservation-grid {
+  min-height: clamp(29rem, 45vw, 35rem);
+  padding-inline: var(--page-gutter);
+}
+
+.conservation-card {
+  width: min(100%, 53.75rem);
+  padding: clamp(2rem, 5vw, 3.5rem);
+}
+
+.feature-grid {
+  grid-template-columns: minmax(16rem, 31.25rem) minmax(0, 32.5rem);
+}
+
+.feature-media {
+  width: min(100%, 31.25rem);
+  height: auto;
+  aspect-ratio: 500 / 542;
+}
+
+.feature-media .strand {
+  width: 87%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.feature-media .turtle {
+  right: clamp(-5rem, -6vw, -1.25rem);
+  bottom: clamp(-4.5rem, -6vw, -1.5rem);
+  width: clamp(12rem, 25vw, 24rem);
+}
+
+.spot-layout {
+  width: 100%;
+  min-height: 0;
+  aspect-ratio: var(--map-ratio);
+}
+
+.marker {
+  width: clamp(1.55rem, 2.7vw, 2.15rem);
+}
+
+.spot-panel,
+.spot-panel.is-collapsed {
+  width: min(24.5rem, calc(100% - var(--page-gutter)));
+}
+
+.spot-panel-head,
+.spot-panel.is-collapsed .spot-panel-head {
+  height: auto;
+  min-height: clamp(7.2rem, 12vw, 8rem);
+  padding: clamp(1.15rem, 2.5vw, 1.65rem);
+}
+
+.course-intro-grid {
+  grid-template-columns: minmax(0, 1fr) minmax(min(100%, 20rem), 35rem);
+  padding: clamp(2rem, 4vw, 3.4rem) 0;
+}
+
+.cards {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: clamp(1.35rem, 3vw, 2.9rem) clamp(1.35rem, 3vw, 2.2rem);
+}
+
+.course-card > img,
+.booking-course img,
+.about-card img,
+.course-intro-grid > img {
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.booking-grid {
+  grid-template-columns: minmax(min(100%, 23rem), 32rem) minmax(0, 1fr);
+}
+
+.booking-form,
+.contact-form,
+.contact-address {
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.booking-course > div,
+.about-card-text {
+  height: auto;
+  min-height: 0;
+  padding: clamp(1.45rem, 3vw, 2.35rem);
+
+}
+
+.contact-grid {
+  grid-template-columns: minmax(min(100%, 22rem), 32.5rem) minmax(0, 1fr);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(12rem, 0.8fr) auto;
+  gap: clamp(1.5rem, 5vw, 3.75rem);
+}
+
+.footer-logo {
+  width: clamp(8rem, 13vw, 12rem);
+}
+
+@media (min-width: 80rem) {
+  .section-shell,
+  .nav-shell,
+  .legal {
+    width: min(var(--content-max), calc(100% - 6rem));
+  }
+
+  .hero-copy {
+    padding-top: 2rem;
+  }
+
+  .spots .wide-heading {
+    max-width: 74rem;
+  }
+}
+
+@media (max-width: 74rem) {
+  .intro-grid,
+  .feature-grid,
+  .booking-grid,
+  .contact-grid,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .course-intro-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(17rem, 42%);
+  }
+
+  .booking-course,
+  .booking-form,
+  .contact-form,
+  .contact-address {
+    width: 100%;
+  }
+}
+
+@media (max-width: 56.25rem) {
+  body.menu-open {
+    overflow: hidden;
+  }
+
+  .top-nav,
+  .top-nav.scrolled {
+    min-height: clamp(4.5rem, 12vw, 5rem);
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-shell {
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    width: min(100% - 1.75rem, 45rem);
+    padding-block: 0.7rem;
+  }
+
+  .brand img,
+  .top-nav .brand img {
+    filter: none;
+  }
+
+  .menu-toggle {
+    display: grid;
+    z-index: 55;
+    color: var(--navy);
+  }
+
+  .nav-cta {
+    display: none;
+  }
+
+  .nav-list {
+    position: fixed;
+    left: var(--page-gutter);
+    right: var(--page-gutter);
+    top: clamp(4.5rem, 12vw, 5rem);
+    z-index: 54;
+    display: grid;
+    justify-items: stretch;
+    align-content: start;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 1.2rem 2.8rem rgba(0, 61, 124, 0.16);
+    transition: max-height 220ms ease;
+  }
+
+  .nav-list.open {
+    max-height: calc(100svh - 5rem - var(--page-gutter));
+    overflow-y: auto;
+  }
+
+  .nav-list li {
+    border-bottom: 1px solid rgba(0, 61, 124, 0.12);
+  }
+
+  .nav-list li:last-child {
+    border-bottom: 0;
+  }
+
+  .nav-list a,
+  .top-nav.scrolled .nav-list a {
+    display: flex;
+    min-height: 3.5rem;
+    align-items: center;
+    padding: 0 1.25rem;
+    color: var(--navy);
+  }
+
+  .nav-fin {
+    display: none;
+  }
+
+  .hero-grid {
+    align-items: end;
+    padding-top: 5.5rem;
+    padding-bottom: clamp(6rem, 15svh, 9rem);
+  }
+
+  .hero-copy {
+    padding-top: 0;
+  }
+
+  .hero-actions,
+  .hero-actions .btn,
+  .booking-form .btn,
+  .contact-form .btn,
+  .book-course-link {
+    width: 100%;
+  }
+
+  .conservation-grid {
+    padding-top: clamp(8rem, 25vw, 11rem);
+  }
+
+  .course-intro-grid,
+  .about-grid,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .course-intro-grid > img {
+    justify-self: stretch;
+  }
+
+  .feature-grid {
+    gap: clamp(1.75rem, 7vw, 3rem);
+  }
+
+  .feature-media {
+    width: min(100%, 34rem);
+    aspect-ratio: 500 / 430;
+  }
+
+  .spot-layout {
+    display: flex;
+    flex-direction: column;
+    aspect-ratio: auto;
+    overflow: visible;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .map-stage {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 829.58 / 441.55;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .spot-panel,
+  .spot-panel.is-collapsed {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    max-height: none;
+    box-shadow: 0 1rem 2.4rem rgba(0, 61, 124, 0.12);
+    backdrop-filter: none;
+  }
+
+  .spot-panel-head,
+  .spot-panel.is-collapsed .spot-panel-head {
+    min-height: 0;
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .spot-accordion {
+    max-height: none;
+    overflow: visible;
+  }
+}
+
+@media (max-width: 40rem) {
+  :root {
+    --page-gutter: clamp(0.9rem, 4.5vw, 1.25rem);
+    --section-space: clamp(3.4rem, 12vw, 4.5rem);
+  }
+
+  body {
+    line-height: 1.65;
+  }
+
+  
+
+  .hero h1 {
+    max-width: 13ch;
+    line-height: 0.96;
+  }
+
+  .hero-copy p:not(.eyebrow) {
+    font-size: 0.94rem;
+  }
+
+  .btn {
+    min-height: 3rem;
+    padding-inline: 1.1rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+  }
+
+  .conservation-card,
+  .booking-form,
+  .contact-form,
+  .contact-address,
+  .course-intro-grid {
+    padding: clamp(1.4rem, 6vw, 2rem);
+  }
+
+  .feature-grid,
+  .course-intro-grid {
+    padding-inline: 0;
+  }
+
+  .feature-media .strand {
+    width: 82%;
+  }
+
+  .feature-media .turtle {
+    width: clamp(11rem, 58vw, 15rem);
+    right: -0.5rem;
+    bottom: -3.2rem;
+  }
+
+  .fish-front {
+    width: clamp(8rem, 40vw, 10rem);
+    left: -3rem;
+    top: 0.5rem;
+    bottom: auto;
+  }
+
+  .fish-back {
+    width: clamp(9rem, 46vw, 11.5rem);
+    right: -4rem;
+    top: 2.6rem;
+    bottom: auto;
+  }
+
+  .wide-heading h3 {
+    font-size: clamp(1rem, 5vw, 1.25rem);
+    line-height: 1.2;
+  }
+
+  .map-stage {
+    aspect-ratio: 829.58 / 441.55;
+  }
+
+  .marker {
+    width: clamp(1.45rem, 7vw, 1.75rem);
+  }
+
+  .marker::after,
+  .map-help {
+    display: none;
+  }
+
+  .spot-panel-head,
+  .spot-panel.is-collapsed .spot-panel-head {
+    padding: 1.1rem;
+    gap: 0.75rem;
+  }
+
+  .spot-panel-toggle {
+    width: 2.75rem;
+    height: 2.75rem;
+    top: 0;
+  }
+
+  .spot-toggle {
+    min-height: 3.75rem;
+    padding: 0.65rem 0.75rem;
+    font-size: clamp(1.08rem, 5.2vw, 1.25rem);
+  }
+
+  .spot-toggle-label {
+    gap: 0.65rem;
+  }
+
+  .spot-toggle img {
+    width: clamp(1.45rem, 7vw, 1.7rem);
+    height: auto;
+  }
+
+  .spot-accordion-item.is-open .spot-content {
+    padding: 0 0.75rem 1rem;
+  }
+
+  .spot-content p {
+    font-size: 0.78rem;
+  }
+
+  .course-card > img,
+  .booking-course img,
+  .about-card img,
+  .course-intro-grid > img,
+  .spot-content-inner .spot-preview {
+    aspect-ratio: 16 / 10;
+  }
+
+  input,
+  select,
+  textarea {
+    min-height: 3rem;
+    font-size: 1rem;
+  }
+
+  .footer-nav,
+  .footer-links,
+  .legal {
+    margin-top: 1rem;
+  }
+
+  .legal {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .legal-links {
+    flex-wrap: wrap;
+    gap: 0.8rem 1.4rem;
+  }
+}
+
+@media (max-width: 24rem) {
+  .spot-toggle-label {
+    align-items: flex-start;
+  }
+
+  .spot-toggle-label img {
+    flex: 0 0 auto;
+  }
+}
+
+/* =========================================================
+   MOBILE-ONLY FIX 2026-06-02
+   Ziel: iPhone 14 Pro Max / kleine Ansichten.
+   Desktop ab 1280px bleibt unberuehrt.
+========================================================= */
+
+@media (max-width: 640px) {
+  :root {
+    --page-gutter: clamp(1rem, 4.65vw, 1.25rem);
+    --section-space: clamp(3.3rem, 10vw, 4.25rem);
+  }
+
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  body {
+    font-size: 15.5px;
+    line-height: 1.65;
+  }
+
+  .section-shell,
+  .nav-shell,
+  .legal {
+    width: min(100% - (var(--page-gutter) * 2), 430px);
+  }
+
+  .section-pad,
+  .feature {
+    padding-block: var(--section-space);
+  }
+
+  .section-heading h2,
+  .wide-heading h2,
+  .feature-copy h2,
+  .course-copy h2,
+  .course-grid h2,
+  .booking-head h2,
+  .about-head h2,
+  .contact-head h2,
+  .footer h2 {
+    font-size: clamp(2.15rem, 10.4vw, 2.85rem);
+    line-height: 1;
+    letter-spacing: -0.035em;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  p,
+  li,
+  label,
+  input,
+  select,
+  textarea {
+    overflow-wrap: break-word;
+  }
+
+  .prose,
+  .intro-text,
+  .course-copy,
+  .course-copy p,
+  .feature-copy,
+  .booking-head,
+  .about-head,
+  .contact-head,
+  .contact-address,
+  .footer-address {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Header */
+  .top-nav,
+  .top-nav.scrolled {
+    min-height: 4.75rem;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.97);
+    box-shadow: 0 0.9rem 2.2rem rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-shell {
+    grid-template-columns: auto auto;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block: 0.7rem;
+  }
+
+  .brand img,
+  .top-nav .brand img,
+  .top-nav.scrolled .brand img {
+    width: clamp(8rem, 34vw, 9.25rem);
+    filter: none;
+  }
+
+  .menu-toggle {
+    width: 2.85rem;
+    height: 2.85rem;
+    display: grid;
+    color: var(--navy);
+  }
+
+  .nav-list,
+  .top-nav.scrolled .nav-list {
+    left: var(--page-gutter);
+    right: var(--page-gutter);
+    top: 4.75rem;
+  }
+
+  .nav-list.open {
+    max-height: calc(100svh - 4.75rem - var(--page-gutter));
+    top: 6.6rem;
+  }
+
+  .prosen {
+    margin-top: 4rem;
+  }
+
+  .nav-list a,
+  .top-nav.scrolled .nav-list a {
+    min-height: 3.55rem;
+    padding-inline: 1.1rem;
+    color: var(--navy);
+    font-size: 0.82rem;
+    letter-spacing: 0.11em;
+  }
+
+  .nav-cta,
+  .nav-fin {
+    display: none;
+  }
+
+  /* Hero */
+  .hero,
+  .hero-grid {
+    min-height: 100svh;
+  }
+
+  .hero-grid {
+    align-items: end;
+    padding-top: 5.7rem;
+    padding-bottom: clamp(6.25rem, 18svh, 8.5rem);
+  }
+
+  .hero-copy {
+    width: 100%;
+    max-width: 100%;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .hero h1 {
+    max-width: 12.5ch;
+    margin-bottom: 1.25rem;
+    font-size: clamp(2.75rem, 12.9vw, 3.55rem);
+    line-height: 0.96;
+  }
+
+  .hero-copy p:not(.eyebrow) {
+    max-width: 31ch;
+    margin-bottom: 1.35rem;
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  .hero-actions {
+    width: 100%;
+    gap: 0.8rem;
+  }
+
+  .hero-actions .btn,
+  .booking-form .btn,
+  .contact-form .btn,
+  .book-course-link {
+    width: 100%;
+  }
+
+  .hero-wave {
+    height: clamp(5.5rem, 25vw, 7.2rem);
+  }
+
+  /* Textbloecke */
+  .intro-grid,
+  .feature-grid,
+  .course-intro-grid,
+  .booking-grid,
+  .about-grid,
+  .contact-grid,
+  .footer-grid,
+  .cards {
+    grid-template-columns: 1fr;
+    gap: clamp(1.35rem, 6vw, 2rem);
+  }
+
+  .intro-grid {
+    margin-bottom: 0;
+  }
+
+  .intro-text {
+    padding-top: 0;
+  }
+
+  .wide-heading h3 {
+    font-size: clamp(1rem, 4.8vw, 1.2rem);
+    line-height: 1.25;
+  }
+
+  .rule {
+    width: 5.3rem;
+  }
+
+  .conservation-grid {
+    min-height: 0;
+    padding: clamp(8.5rem, 32vw, 10.5rem) var(--page-gutter) 0;
+  }
+
+  .conservation-card,
+  .booking-form,
+  .contact-form,
+  .contact-address,
+  .course-intro-grid,
+  .booking-course > div,
+  .about-card-text {
+    width: 100%;
+    padding: clamp(1.35rem, 5.8vw, 1.85rem);
+  }
+
+  .conservation-card h2,
+  .course-copy h3,
+  .about-grid h3,
+  .booking-course h3,
+  .booking-form h3,
+  .contact-form h3,
+  .contact-address h3,
+  .spot-panel h3 {
+    font-size: clamp(1.9rem, 8.5vw, 2.35rem);
+    line-height: 1.02;
+  }
+
+  .fish-front {
+    width: clamp(8.5rem, 40vw, 10.25rem);
+    left: -3.3rem;
+    top: 0.5rem;
+    bottom: auto;
+  }
+
+  .fish-back {
+    width: clamp(9.5rem, 46vw, 11.75rem);
+    right: -4.25rem;
+    top: 2.75rem;
+    bottom: auto;
+  }
+
+  /* Bild/Text Feature */
+  .feature-grid,
+  .course-intro-grid {
+    padding: 0;
+  }
+
+  .feature-media {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 500 / 430;
+  }
+
+  .feature-media .strand {
+    width: 83%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .feature-media .turtle {
+    width: clamp(11.5rem, 57vw, 15.25rem);
+    right: -0.65rem;
+    bottom: -3.25rem;
+  }
+
+  .feature-copy p:not(.eyebrow),
+  .course-copy p:not(.eyebrow),
+  .course-detail p,
+  .course-detail .facts,
+  .booking-course p,
+  .about-grid p,
+  .contact-address p {
+    font-size: 0.93rem;
+    line-height: 1.68;
+  }
+  .copyright p {
+    font-size: 0.65rem;
+  }
+
+  /* Tauchspots Karte */
+  .spot-layout {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.6rem;
+    aspect-ratio: auto;
+    overflow: visible;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .map-stage {
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 829.58 / 441.55;
+    overflow: hidden;
+    border-radius: 0;
+    box-shadow: var(--shadow-lg);
+    touch-action: pan-y;
+  }
+
+  .map-inner {
+    width: 100%;
+    height: 100%;
+  }
+
+  .map-help,
+  .marker::after {
+    display: none;
+  }
+
+  .marker {
+    width: clamp(1.42rem, 6.7vw, 1.75rem);
+    min-width: 0;
+  }
+
+  .spot-panel,
+  .spot-panel.is-collapsed {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    max-height: none;
+    margin: 0;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 1rem 2.25rem rgba(0, 61, 124, 0.12);
+    backdrop-filter: none;
+  }
+
+  .spot-panel-head,
+  .spot-panel.is-collapsed .spot-panel-head {
+    height: auto;
+    min-height: 0;
+    grid-template-columns: minmax(0, 1fr) 2.75rem;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 1.05rem 1rem;
+  }
+
+  .spot-panel-title,
+  .spot-panel.is-collapsed .spot-panel-title,
+  .spot-panel.is-collapsed .spot-panel-title .eyebrow,
+  .spot-panel.is-collapsed .spot-panel-title p:not(.eyebrow) {
+    display: block;
+  }
+
+  .spot-panel-head .eyebrow {
+    margin-bottom: 0.35rem;
+  }
+
+  .spot-panel-head h3,
+  .spot-panel.is-collapsed .spot-panel-title h3 {
+    margin-bottom: 0.4rem;
+  }
+
+  .spot-panel-head p:not(.eyebrow),
+  .spot-panel.is-collapsed .spot-panel-title p:not(.eyebrow) {
+    max-width: 100%;
+    margin: 0;
+    font-size: 0.75rem;
+    line-height: 1.45;
+  }
+
+  .spot-panel-toggle {
+    top: 0;
+    width: 2.75rem;
+    height: 2.75rem;
+    align-self: center;
+    display: grid;
+    place-items: center;
+    background: transparent;
+  }
+
+  .spot-panel-toggle img {
+    width: 1.55rem;
+    height: 1.55rem;
+  }
+
+  .spot-accordion {
+    display: block;
+    max-height: none;
+    overflow: visible;
+    padding: 0.65rem;
+  }
+
+  .spot-panel.is-collapsed .spot-accordion {
+    display: none;
+  }
+
+  .spot-toggle {
+    min-height: 3.55rem;
+    gap: 0.7rem;
+    padding: 0.65rem 0.75rem;
+    font-size: clamp(1.05rem, 4.8vw, 1.24rem);
+  }
+
+  .spot-toggle-label {
+    min-width: 0;
+    gap: 0.65rem;
+  }
+
+  .spot-toggle-label img,
+  .spot-toggle img {
+    width: 1.55rem;
+    height: 2.55rem;
+  }
+
+  .spot-arrow img {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  .spot-accordion-item.is-open .spot-content {
+    padding: 0 0.75rem 1rem;
+  }
+
+  .spot-content-inner {
+    gap: 0.8rem;
+  }
+
+  .spot-content p {
+    font-size: 0.78rem;
+    line-height: 1.62;
+  }
+
+  .spot-content-inner .spot-preview,
+  .spot-preview {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  /* Kurse, Buchung, Kontakt */
+  .cards {
+    gap: 1.35rem;
+  }
+
+  .course-card > img,
+  .booking-course img,
+  .about-card img,
+  .course-intro-grid > img {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+  }
+
+  .course-body {
+    padding: 1.2rem 1.05rem 1.35rem;
+  }
+
+  .course-body h3 {
+    font-size: clamp(1.45rem, 6.2vw, 1.75rem);
+  }
+
+  .booking-grid,
+  .contact-grid {
+    gap: 1.35rem;
+  }
+
+  .booking-head,
+  .contact-head,
+  .about-head {
+    margin-bottom: 1.8rem;
+  }
+
+  label {
+    margin-bottom: 1rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.13em;
+  }
+
+  input,
+  select,
+  textarea {
+    min-height: 3rem;
+    padding: 0.65rem 0.75rem;
+    font-size: 1rem;
+  }
+
+  textarea {
+    min-height: 7.5rem;
+  }
+
+  .checkbox {
+    grid-template-columns: 1.15rem minmax(0, 1fr);
+    gap: 0.75rem;
+    font-size: 0.72rem;
+  }
+
+  .checkbox input {
+    width: 1.15rem;
+    min-height: 1.15rem;
+  }
+
+  .about-card-text {
+    height: auto;
+    min-height: 0;
+  }
+
+  .lines {
+    min-height: 5.8rem;
+    margin: 2.4rem 0 2rem;
+    background-size: cover;
+  }
+
+  .banner {
+    min-height: 13.5rem;
+  }
+
+  /* Footer */
+  .footer {
+    padding-block: 2.1rem 1.3rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    gap: 1.2rem;
+  }
+
+  .footer-logo {
+    width: 8.8rem;
+    margin: 0;
+    opacity: 0;
+  }
+
+  .footer-nav,
+  .footer-links,
+  .legal {
+    margin-top: 1rem;
+  }
+
+  .footer-links a,
+  .legal a {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+  }
+
+  .legal {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding-block: 1rem 0;
+  }
+
+  .legal-links {
+    flex-wrap: wrap;
+    gap: 0.75rem 1.35rem;
+  }
+  .copyright {
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 430px) {
+  .section-shell,
+  .nav-shell,
+  .legal {
+    width: calc(100% - (var(--page-gutter) * 2));
+  }
+
+  .section-shell.intro-grid {
+    margin-bottom: 6rem;
+  }
+  .section-shell.intro-grid {
+    margin-bottom: 6rem;
+    gap:0;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.65rem, 12.6vw, 3.35rem);
+  }
+
+  .hero-copy p:not(.eyebrow) {
+    max-width: 30ch;
+  }
+  .copyright {
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 380px) {
+  :root {
+    --page-gutter: 0.9rem;
+  }
+
+  .hero h1 {
+    font-size: 2.45rem;
+  }
+
+  .spot-toggle {
+    font-size: 1rem;
+  }
+}
+
